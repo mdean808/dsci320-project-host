@@ -1,0 +1,1020 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "data": {
+    "url": "/ea_Data.json"
+  },
+  "signals": [
+    {
+      "name": "concat_0_width",
+      "value": 500
+    },
+    {
+      "name": "concat_0_height",
+      "value": 700
+    },
+    {
+      "name": "concat_1_width",
+      "value": 700
+    },
+    {
+      "name": "concat_1_concat_0_height",
+      "value": 400
+    },
+    {
+      "name": "view_693b3db923ef7acb_1_height",
+      "value": 100
+    },
+    {
+      "name": "unit",
+      "value": {},
+      "on": [
+        {
+          "events": "pointermove",
+          "update": "isTuple(group()) ? group() : unit"
+        }
+      ]
+    },
+    {
+      "name": "param_c43b9dc8de4b37bc",
+      "update": "vlSelectionResolve(\"param_c43b9dc8de4b37bc_store\", \"union\", true, true)"
+    },
+    {
+      "name": "param_4440efed93a5dd85",
+      "update": "vlSelectionResolve(\"param_4440efed93a5dd85_store\", \"union\", true, true)"
+    },
+    {
+      "name": "ShowMissing",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Show Only Non-Missing Data"
+      }
+    },
+    {
+      "name": "grouping",
+      "value": "continent_name",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "continent_name",
+          "gdp_bin",
+          "pop_bin",
+          "econ_group"
+        ],
+        "labels": [
+          "Continent",
+          "GDP",
+          "Population",
+          "Trading Bloc"
+        ],
+        "name": "Group By: "
+      }
+    },
+    {
+      "name": "Year",
+      "value": 1990,
+      "bind": {
+        "input": "range",
+        "max": 2022,
+        "min": 1990,
+        "step": 1
+      }
+    }
+  ],
+  "marks": [
+    {
+      "type": "group",
+      "name": "concat_0_group",
+      "encode": {
+        "update": {
+          "height": {
+            "signal": "concat_0_height"
+          },
+          "width": {
+            "signal": "concat_0_width"
+          }
+        }
+      },
+      "signals": [
+        {
+          "name": "param_c43b9dc8de4b37bc_tuple",
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "mouseover"
+                }
+              ],
+              "update": "datum && item().mark.marktype !== 'group' && indexof(item().mark.role, 'legend') < 0 ? {unit: \"view_5ee0aad1928b8529_0\", fields: param_c43b9dc8de4b37bc_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"country_name\"]]} : null",
+              "force": true
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "mouseout"
+                }
+              ],
+              "update": "null"
+            }
+          ]
+        },
+        {
+          "name": "param_c43b9dc8de4b37bc_tuple_fields",
+          "value": [
+            {
+              "type": "E",
+              "field": "country_name"
+            }
+          ]
+        },
+        {
+          "name": "param_c43b9dc8de4b37bc_toggle",
+          "value": false,
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "mouseover"
+                }
+              ],
+              "update": "event.shiftKey"
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "mouseout"
+                }
+              ],
+              "update": "false"
+            }
+          ]
+        },
+        {
+          "name": "param_c43b9dc8de4b37bc_modify",
+          "on": [
+            {
+              "events": {
+                "signal": "param_c43b9dc8de4b37bc_tuple"
+              },
+              "update": "modify(\"param_c43b9dc8de4b37bc_store\", param_c43b9dc8de4b37bc_toggle ? null : param_c43b9dc8de4b37bc_tuple, param_c43b9dc8de4b37bc_toggle ? null : true, param_c43b9dc8de4b37bc_toggle ? param_c43b9dc8de4b37bc_tuple : null)"
+            }
+          ]
+        },
+        {
+          "name": "param_4440efed93a5dd85_tuple",
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "click"
+                }
+              ],
+              "update": "datum && item().mark.marktype !== 'group' && indexof(item().mark.role, 'legend') < 0 ? {unit: \"view_5ee0aad1928b8529_0\", fields: param_4440efed93a5dd85_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"group_value\"], (item().isVoronoi ? datum.datum : datum)[\"metric\"]]} : null",
+              "force": true
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "dblclick"
+                }
+              ],
+              "update": "null"
+            }
+          ]
+        },
+        {
+          "name": "param_4440efed93a5dd85_tuple_fields",
+          "value": [
+            {
+              "type": "E",
+              "field": "group_value"
+            },
+            {
+              "type": "E",
+              "field": "metric"
+            }
+          ]
+        },
+        {
+          "name": "param_4440efed93a5dd85_toggle",
+          "value": false,
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "click"
+                }
+              ],
+              "update": "event.shiftKey"
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "dblclick"
+                }
+              ],
+              "update": "false"
+            }
+          ]
+        },
+        {
+          "name": "param_4440efed93a5dd85_modify",
+          "on": [
+            {
+              "events": {
+                "signal": "param_4440efed93a5dd85_tuple"
+              },
+              "update": "modify(\"param_4440efed93a5dd85_store\", param_4440efed93a5dd85_toggle ? null : param_4440efed93a5dd85_tuple, param_4440efed93a5dd85_toggle ? null : true, param_4440efed93a5dd85_toggle ? param_4440efed93a5dd85_tuple : null)"
+            }
+          ]
+        }
+      ],
+      "marks": [
+        {
+          "type": "rect",
+          "name": "view_5ee0aad1928b8529_0_marks",
+          "from": {
+            "data": "data_1"
+          },
+          "encode": {
+            "update": {
+              "y": {
+                "field": "mean_value",
+                "scale": "concat_0_y"
+              },
+              "y2": {
+                "signal": "scale('concat_0_y', inrange(0, domain('concat_0_y')) ? 0 : domain('concat_0_y')[0])"
+              },
+              "fill": {
+                "field": "metric",
+                "scale": "color"
+              },
+              "x": {
+                "field": "group_value",
+                "scale": "concat_0_x",
+                "offset": {
+                  "field": "metric",
+                  "scale": "xOffset"
+                }
+              },
+              "tooltip": {
+                "signal": "{\"Group\": isValid(datum[\"group_value\"]) ? datum[\"group_value\"] : \"\"+datum[\"group_value\"], \"Metric\": isValid(datum[\"metric\"]) ? datum[\"metric\"] : \"\"+datum[\"metric\"], \"Average CO\u2082\": format(datum[\"mean_value\"], \".2f\")}"
+              },
+              "width": {
+                "signal": "max(0.25, bandwidth('xOffset'))"
+              },
+              "opacity": [
+                {
+                  "value": 1,
+                  "test": "length(data(\"param_4440efed93a5dd85_store\")) && vlSelectionTest(\"param_4440efed93a5dd85_store\", datum)"
+                },
+                {
+                  "value": 0.3
+                }
+              ]
+            }
+          },
+          "interactive": true,
+          "style": [
+            "bar"
+          ]
+        },
+        {
+          "type": "rect",
+          "name": "concat_0_layer_1_marks",
+          "from": {
+            "data": "data_0"
+          },
+          "encode": {
+            "update": {
+              "x": {
+                "field": {
+                  "signal": null,
+                  "datum": null,
+                  "group": "width",
+                  "parent": null
+                }
+              },
+              "x2": {
+                "value": 0
+              },
+              "y2": {
+                "field": {
+                  "signal": null,
+                  "datum": null,
+                  "group": "height",
+                  "parent": null
+                }
+              },
+              "opacity": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "fill": {
+                "value": "#4c78a8"
+              }
+            }
+          },
+          "style": [
+            "bar"
+          ],
+          "interactive": false
+        }
+      ],
+      "axes": [
+        {
+          "scale": "concat_0_y",
+          "zindex": 0,
+          "minExtent": 0,
+          "aria": false,
+          "domain": false,
+          "gridScale": "concat_0_x",
+          "maxExtent": 0,
+          "tickCount": {
+            "signal": "ceil(concat_0_height/40)"
+          },
+          "ticks": false,
+          "orient": "left",
+          "grid": true,
+          "labels": false
+        },
+        {
+          "scale": "concat_0_x",
+          "grid": false,
+          "titlePadding": 10,
+          "zindex": 0,
+          "labelBaseline": "top",
+          "title": "Group",
+          "labelAngle": 0,
+          "orient": "bottom",
+          "titleFontSize": 15
+        },
+        {
+          "scale": "concat_0_y",
+          "orient": "left",
+          "grid": false,
+          "tickCount": {
+            "signal": "ceil(concat_0_height/40)"
+          },
+          "zindex": 0,
+          "labelOverlap": true,
+          "title": "Average CO\u2082",
+          "titleFontSize": 15,
+          "titlePadding": 10
+        }
+      ],
+      "title": {
+        "text": "Average Total CO\u2082 vs Average Trade CO\u2082",
+        "subtitle": "By Dynamic Grouping",
+        "frame": "group"
+      },
+      "legends": [
+        {
+          "title": "Metric",
+          "fill": "color",
+          "symbolType": "square",
+          "encode": {
+            "symbols": {
+              "update": {
+                "opacity": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
+      ],
+      "style": [
+        "cell",
+        "view"
+      ]
+    },
+    {
+      "type": "group",
+      "name": "concat_1_group",
+      "marks": [
+        {
+          "type": "group",
+          "name": "concat_1_concat_0_group",
+          "encode": {
+            "update": {
+              "width": {
+                "signal": "concat_1_width"
+              },
+              "height": {
+                "signal": "concat_1_concat_0_height"
+              }
+            }
+          },
+          "signals": [
+            {
+              "name": "param_c43b9dc8de4b37bc_tuple",
+              "on": [
+                {
+                  "events": [
+                    {
+                      "source": "scope",
+                      "type": "mouseover"
+                    }
+                  ],
+                  "update": "datum && item().mark.marktype !== 'group' && indexof(item().mark.role, 'legend') < 0 ? {unit: \"view_60a6c26770397fd9_0\", fields: param_c43b9dc8de4b37bc_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"country_name\"]]} : null",
+                  "force": true
+                },
+                {
+                  "events": [
+                    {
+                      "source": "view",
+                      "type": "mouseout"
+                    }
+                  ],
+                  "update": "null"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_tuple_fields",
+              "value": [
+                {
+                  "type": "E",
+                  "field": "country_name"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_toggle",
+              "value": false,
+              "on": [
+                {
+                  "events": [
+                    {
+                      "source": "scope",
+                      "type": "mouseover"
+                    }
+                  ],
+                  "update": "event.shiftKey"
+                },
+                {
+                  "events": [
+                    {
+                      "source": "view",
+                      "type": "mouseout"
+                    }
+                  ],
+                  "update": "false"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_modify",
+              "on": [
+                {
+                  "events": {
+                    "signal": "param_c43b9dc8de4b37bc_tuple"
+                  },
+                  "update": "modify(\"param_c43b9dc8de4b37bc_store\", param_c43b9dc8de4b37bc_toggle ? null : param_c43b9dc8de4b37bc_tuple, param_c43b9dc8de4b37bc_toggle ? null : true, param_c43b9dc8de4b37bc_toggle ? param_c43b9dc8de4b37bc_tuple : null)"
+                }
+              ]
+            }
+          ],
+          "marks": [
+            {
+              "type": "rect",
+              "name": "view_60a6c26770397fd9_0_marks",
+              "from": {
+                "data": "data_4"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "field": "country_name_short",
+                    "scale": "concat_1_concat_0_x"
+                  },
+                  "width": {
+                    "signal": "max(0.25, bandwidth('concat_1_concat_0_x'))"
+                  },
+                  "y2": {
+                    "field": "value_start",
+                    "scale": "concat_1_concat_0_y"
+                  },
+                  "tooltip": {
+                    "signal": "{\"country_name_short\": isValid(datum[\"country_name_short\"]) ? datum[\"country_name_short\"] : \"\"+datum[\"country_name_short\"], \"GDP\": format(datum[\"gdp\"], \".2s\"), \"Value\": format(datum[\"value\"], \"\"), \"metric\": isValid(datum[\"metric\"]) ? datum[\"metric\"] : \"\"+datum[\"metric\"]}"
+                  },
+                  "y": {
+                    "field": "value_end",
+                    "scale": "concat_1_concat_0_y"
+                  },
+                  "fill": {
+                    "field": "metric",
+                    "scale": "color"
+                  },
+                  "opacity": [
+                    {
+                      "value": 1,
+                      "test": "!length(data(\"param_c43b9dc8de4b37bc_store\")) || vlSelectionTest(\"param_c43b9dc8de4b37bc_store\", datum)"
+                    },
+                    {
+                      "value": 0.1
+                    }
+                  ]
+                }
+              },
+              "style": [
+                "bar"
+              ],
+              "interactive": true
+            },
+            {
+              "type": "rule",
+              "name": "concat_1_concat_0_layer_1_marks",
+              "from": {
+                "data": "data_6"
+              },
+              "encode": {
+                "update": {
+                  "tooltip": {
+                    "signal": "{\"CO\u2082 Average\": format(datum[\"avg_value\"], \"\")}"
+                  },
+                  "strokeWidth": {
+                    "value": 1
+                  },
+                  "x": {
+                    "field": {
+                      "signal": null,
+                      "datum": null,
+                      "group": "width",
+                      "parent": null
+                    }
+                  },
+                  "stroke": {
+                    "value": "blue"
+                  },
+                  "x2": {
+                    "value": 0
+                  },
+                  "y": {
+                    "field": "avg_value",
+                    "scale": "concat_1_concat_0_y"
+                  }
+                }
+              },
+              "interactive": true,
+              "style": [
+                "rule"
+              ]
+            },
+            {
+              "type": "rule",
+              "name": "concat_1_concat_0_layer_2_marks",
+              "from": {
+                "data": "data_7"
+              },
+              "encode": {
+                "update": {
+                  "stroke": {
+                    "value": "orange"
+                  },
+                  "x2": {
+                    "value": 0
+                  },
+                  "x": {
+                    "field": {
+                      "signal": null,
+                      "datum": null,
+                      "group": "width",
+                      "parent": null
+                    }
+                  },
+                  "y": {
+                    "field": "avg_value",
+                    "scale": "concat_1_concat_0_y"
+                  },
+                  "strokeWidth": {
+                    "value": 1
+                  },
+                  "tooltip": {
+                    "signal": "{\"Trade CO\u2082 Average\": format(datum[\"avg_value\"], \"\")}"
+                  }
+                }
+              },
+              "interactive": true,
+              "style": [
+                "rule"
+              ]
+            }
+          ],
+          "axes": [
+            {
+              "scale": "concat_1_concat_0_y",
+              "orient": "left",
+              "maxExtent": 0,
+              "labels": false,
+              "ticks": false,
+              "aria": false,
+              "gridScale": "concat_1_concat_0_x",
+              "grid": true,
+              "tickCount": {
+                "signal": "ceil(concat_1_concat_0_height/40)"
+              },
+              "minExtent": 0,
+              "zindex": 0,
+              "domain": false
+            },
+            {
+              "scale": "concat_1_concat_0_x",
+              "orient": "bottom",
+              "titleFontSize": 15,
+              "titlePadding": 10,
+              "grid": false,
+              "labelAlign": "right",
+              "labelBaseline": "middle",
+              "labelAngle": 290,
+              "title": "Country",
+              "zindex": 0
+            },
+            {
+              "scale": "concat_1_concat_0_y",
+              "grid": false,
+              "titleFontSize": 15,
+              "orient": "left",
+              "zindex": 0,
+              "title": "CO\u2082 Emissions",
+              "tickCount": {
+                "signal": "ceil(concat_1_concat_0_height/40)"
+              },
+              "titlePadding": 10,
+              "labelOverlap": true
+            }
+          ],
+          "title": {
+            "text": "Countries in Selected Group",
+            "frame": "group",
+            "subtitle": "Ordered by GDP, Ascending"
+          },
+          "style": "cell"
+        },
+        {
+          "type": "group",
+          "name": "view_693b3db923ef7acb_1_group",
+          "encode": {
+            "update": {
+              "width": {
+                "signal": "concat_1_width"
+              },
+              "height": {
+                "signal": "view_693b3db923ef7acb_1_height"
+              }
+            }
+          },
+          "signals": [
+            {
+              "name": "height",
+              "update": "view_693b3db923ef7acb_1_height"
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_tuple",
+              "on": [
+                {
+                  "events": [
+                    {
+                      "source": "scope",
+                      "type": "mouseover"
+                    }
+                  ],
+                  "update": "datum && item().mark.marktype !== 'group' && indexof(item().mark.role, 'legend') < 0 ? {unit: \"view_693b3db923ef7acb_1\", fields: param_c43b9dc8de4b37bc_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"country_name\"]]} : null",
+                  "force": true
+                },
+                {
+                  "events": [
+                    {
+                      "source": "view",
+                      "type": "mouseout"
+                    }
+                  ],
+                  "update": "null"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_tuple_fields",
+              "value": [
+                {
+                  "type": "E",
+                  "field": "country_name"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_toggle",
+              "value": false,
+              "on": [
+                {
+                  "events": [
+                    {
+                      "source": "scope",
+                      "type": "mouseover"
+                    }
+                  ],
+                  "update": "event.shiftKey"
+                },
+                {
+                  "events": [
+                    {
+                      "source": "view",
+                      "type": "mouseout"
+                    }
+                  ],
+                  "update": "false"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_modify",
+              "on": [
+                {
+                  "events": {
+                    "signal": "param_c43b9dc8de4b37bc_tuple"
+                  },
+                  "update": "modify(\"param_c43b9dc8de4b37bc_store\", param_c43b9dc8de4b37bc_toggle ? null : param_c43b9dc8de4b37bc_tuple, param_c43b9dc8de4b37bc_toggle ? null : true, param_c43b9dc8de4b37bc_toggle ? param_c43b9dc8de4b37bc_tuple : null)"
+                }
+              ]
+            }
+          ],
+          "marks": [
+            {
+              "type": "rect",
+              "name": "view_693b3db923ef7acb_1_marks",
+              "from": {
+                "data": "data_5"
+              },
+              "encode": {
+                "update": {
+                  "width": {
+                    "value": 1
+                  },
+                  "yc": {
+                    "signal": "view_693b3db923ef7acb_1_height",
+                    "mult": 0.5
+                  },
+                  "height": {
+                    "value": 100
+                  },
+                  "fill": {
+                    "value": "#4c78a8"
+                  },
+                  "xc": {
+                    "field": "gdp",
+                    "scale": "view_693b3db923ef7acb_1_x"
+                  },
+                  "opacity": [
+                    {
+                      "value": 1,
+                      "test": "!length(data(\"param_c43b9dc8de4b37bc_store\")) || vlSelectionTest(\"param_c43b9dc8de4b37bc_store\", datum)"
+                    },
+                    {
+                      "value": 0.1
+                    }
+                  ]
+                }
+              },
+              "style": [
+                "tick"
+              ],
+              "interactive": true
+            }
+          ],
+          "axes": [
+            {
+              "scale": "view_693b3db923ef7acb_1_x",
+              "aria": false,
+              "ticks": false,
+              "minExtent": 0,
+              "tickCount": {
+                "signal": "ceil(concat_1_width/40)"
+              },
+              "orient": "bottom",
+              "grid": true,
+              "zindex": 0,
+              "domain": false,
+              "maxExtent": 0,
+              "labels": false
+            },
+            {
+              "scale": "view_693b3db923ef7acb_1_x",
+              "title": "gdp",
+              "zindex": 0,
+              "labelOverlap": true,
+              "orient": "bottom",
+              "grid": false,
+              "labelFlush": true,
+              "tickCount": {
+                "signal": "ceil(concat_1_width/40)"
+              }
+            }
+          ],
+          "title": {
+            "text": "GDP of Selected Countries (in USD)",
+            "frame": "group"
+          },
+          "style": "cell"
+        }
+      ],
+      "legends": [
+        {
+          "fill": "color",
+          "symbolType": "square",
+          "title": "metric",
+          "encode": {
+            "symbols": {
+              "update": {
+                "opacity": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
+      ],
+      "layout": {
+        "padding": 20,
+        "columns": 1,
+        "bounds": "full",
+        "align": "each"
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "xOffset",
+      "type": "band",
+      "domain": {
+        "data": "data_1_xOffset_domain_metric",
+        "field": "metric",
+        "sort": true
+      },
+      "range": [
+        0,
+        {
+          "signal": "bandwidth('concat_0_x')"
+        }
+      ]
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {
+        "fields": [
+          {
+            "data": "data_1_color_domain_metric_0",
+            "field": "metric"
+          },
+          {
+            "data": "data_4_color_domain_metric_1",
+            "field": "metric"
+          }
+        ],
+        "sort": true
+      },
+      "range": "category"
+    },
+    {
+      "name": "concat_0_x",
+      "type": "band",
+      "domain": {
+        "data": "data_1_concat_0_x_domain_group_value",
+        "field": "group_value",
+        "sort": true
+      },
+      "range": [
+        0,
+        {
+          "signal": "concat_0_width"
+        }
+      ],
+      "paddingOuter": 0.2,
+      "paddingInner": 0.2
+    },
+    {
+      "name": "concat_0_y",
+      "type": "linear",
+      "domain": [
+        {
+          "signal": "(data(\"data_1_concat_0_y_domain_mean_value\")[0] || {}).min"
+        },
+        {
+          "signal": "(data(\"data_1_concat_0_y_domain_mean_value\")[0] || {}).max"
+        }
+      ],
+      "range": [
+        {
+          "signal": "concat_0_height"
+        },
+        0
+      ],
+      "zero": false,
+      "nice": true
+    },
+    {
+      "name": "concat_1_concat_0_x",
+      "type": "band",
+      "domain": {
+        "data": "data_3_concat_1_concat_0_x_domain_country_name_short",
+        "field": "country_name_short",
+        "sort": {
+          "op": "max",
+          "field": "sort_field"
+        }
+      },
+      "range": [
+        0,
+        {
+          "signal": "concat_1_width"
+        }
+      ],
+      "paddingInner": 0.1,
+      "paddingOuter": 0.05
+    },
+    {
+      "name": "concat_1_concat_0_y",
+      "type": "linear",
+      "domain": {
+        "fields": [
+          {
+            "data": "data_4",
+            "field": "value_start"
+          },
+          {
+            "data": "data_4",
+            "field": "value_end"
+          },
+          {
+            "data": "data_6",
+            "field": "avg_value"
+          },
+          {
+            "data": "data_7",
+            "field": "avg_value"
+          }
+        ]
+      },
+      "range": [
+        {
+          "signal": "concat_1_concat_0_height"
+        },
+        0
+      ],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "view_693b3db923ef7acb_1_x",
+      "type": "linear",
+      "domain": [
+        {
+          "signal": "(data(\"data_5_view_693b3db923ef7acb_1_x_domain_gdp\")[0] || {}).min"
+        },
+        {
+          "signal": "(data(\"data_5_view_693b3db923ef7acb_1_x_domain_gdp\")[0] || {}).max"
+        }
+      ],
+      "range": [
+        0,
+        {
+          "signal": "concat_1_width"
+        }
+      ],
+      "zero": true,
+      "nice": true
+    }
+  ],
+  "title": {
+    "text": "View 2: Trade and CO\u2082 Explorer",
+    "offset": 30,
+    "fontSize": 35,
+    "anchor": "middle"
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "fill": null,
+        "stroke": null
+      }
+    }
+  },
+  "padding": 5,
+  "layout": {
+    "padding": 20,
+    "bounds": "full",
+    "align": "each"
+  },
+  "background": "white"
+}
