@@ -1,0 +1,648 @@
+{
+  "config": {
+    "view": {
+      "continuousWidth": 300,
+      "continuousHeight": 300
+    }
+  },
+  "vconcat": [
+    {
+      "vconcat": [
+        {
+          "data": {
+            "url": "data/altair-data-a89a436a0e5669393bc62a81308ffe05.json",
+            "format": {
+              "type": "json"
+            }
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "fontSize": 14,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "text": {
+              "field": "text",
+              "type": "nominal"
+            },
+            "x": {
+              "value": 0
+            }
+          },
+          "height": 25,
+          "name": "view_33130024c71beb2f_0",
+          "width": 600
+        },
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "bar"
+              },
+              "encoding": {
+                "color": {
+                  "condition": {
+                    "param": "param_3aa587e56760617c",
+                    "field": "Direction",
+                    "scale": {
+                      "domain": [
+                        "Increase",
+                        "Decrease"
+                      ],
+                      "range": [
+                        "#d73027",
+                        "#1a9850"
+                      ]
+                    },
+                    "type": "nominal"
+                  },
+                  "value": "lightgray"
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "met_pct_change",
+                    "format": ".1f",
+                    "title": "Methane emissions change (%)",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "met_early",
+                    "format": ",.2f",
+                    "title": "Methane emissions (1992\u201397 avg, in million tonnes of CO2 equivalents)",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "met_late",
+                    "format": ",.2f",
+                    "title": "Methane emissions (2017\u201322 avg, in million tonnes of CO2 equivalents)",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "Direction",
+                    "title": "Direction",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "axis": {
+                    "format": ".0f"
+                  },
+                  "field": "met_pct_change",
+                  "scale": {
+                    "domain": [
+                      -339.0424071583026,
+                      339.0424071583026
+                    ]
+                  },
+                  "title": "Percent change in methane emissions",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": {
+                    "labels": false,
+                    "ticks": false
+                  },
+                  "field": "Name",
+                  "sort": {
+                    "field": "met_pct_change",
+                    "order": "descending"
+                  },
+                  "title": null,
+                  "type": "nominal"
+                }
+              },
+              "name": "view_0f662e8da4411bb3_0"
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 4
+              },
+              "encoding": {
+                "text": {
+                  "field": "Name",
+                  "type": "nominal"
+                },
+                "x": {
+                  "axis": {
+                    "format": ".0f"
+                  },
+                  "field": "met_pct_change",
+                  "scale": {
+                    "domain": [
+                      -339.0424071583026,
+                      339.0424071583026
+                    ]
+                  },
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "Name",
+                  "sort": {
+                    "field": "met_pct_change",
+                    "order": "descending"
+                  },
+                  "type": "nominal"
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.met_pct_change >= 0"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -4
+              },
+              "encoding": {
+                "text": {
+                  "field": "Name",
+                  "type": "nominal"
+                },
+                "x": {
+                  "axis": {
+                    "format": ".0f"
+                  },
+                  "field": "met_pct_change",
+                  "scale": {
+                    "domain": [
+                      -339.0424071583026,
+                      339.0424071583026
+                    ]
+                  },
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "Name",
+                  "sort": {
+                    "field": "met_pct_change",
+                    "order": "descending"
+                  },
+                  "type": "nominal"
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.met_pct_change < 0"
+                }
+              ]
+            }
+          ],
+          "data": {
+            "url": "data/altair-data-4c473d19561aa85ad69da8176dcbb2c6.json",
+            "format": {
+              "type": "json"
+            }
+          },
+          "height": 300,
+          "width": 600
+        }
+      ],
+      "spacing": 0
+    },
+    {
+      "vconcat": [
+        {
+          "data": {
+            "url": "data/altair-data-8bc844830a7354fd9ed895c3232cf6ab.json",
+            "format": {
+              "type": "json"
+            }
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "fontSize": 14,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "text": {
+              "field": "title",
+              "type": "nominal"
+            },
+            "x": {
+              "value": 0
+            }
+          },
+          "height": 25,
+          "name": "view_f13d66a6e8a19d44_0",
+          "transform": [
+            {
+              "filter": {
+                "param": "param_a7e229fe63649aaa"
+              }
+            },
+            {
+              "aggregate": [],
+              "groupby": [
+                "Name"
+              ]
+            },
+            {
+              "calculate": "'Total emissions over time - ' + datum.Name",
+              "as": "title"
+            }
+          ],
+          "width": 600
+        },
+        {
+          "layer": [
+            {
+              "data": {
+                "url": "data/altair-data-8bc844830a7354fd9ed895c3232cf6ab.json",
+                "format": {
+                  "type": "json"
+                }
+              },
+              "mark": {
+                "type": "area"
+              },
+              "encoding": {
+                "color": {
+                  "field": "gas",
+                  "legend": {
+                    "labelExpr": "{'co2_including_luc':'CO\u2082 (including LUC)', 'methane':'Methane', 'nitrous_oxide':'Nitrous Oxide'}[datum.label]"
+                  },
+                  "scale": {
+                    "domain": [
+                      "co2_including_luc",
+                      "methane",
+                      "nitrous_oxide"
+                    ],
+                    "range": [
+                      "#1f77b4",
+                      "#ff7f0e",
+                      "#2ca02c"
+                    ]
+                  },
+                  "title": "Gas",
+                  "type": "nominal"
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "year",
+                    "title": "Year",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "gas",
+                    "title": "Gas",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "value",
+                    "format": ",.2f",
+                    "title": "Emissions",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "axis": {
+                    "labelColor": "black",
+                    "format": ""
+                  },
+                  "field": "year",
+                  "scale": {
+                    "domain": [
+                      1922,
+                      2022
+                    ]
+                  },
+                  "title": "Year",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": {
+                    "labelColor": "black",
+                    "format": ".0f"
+                  },
+                  "field": "value",
+                  "title": "Emissions (in million tonnes of CO2 equivalents)",
+                  "type": "quantitative"
+                }
+              },
+              "name": "view_ac61d48fd748e0ff_0",
+              "transform": [
+                {
+                  "filter": {
+                    "param": "param_a7e229fe63649aaa"
+                  }
+                },
+                {
+                  "filter": "(datum.gas == 'co2_including_luc' && show_co2) || (datum.gas == 'methane' && show_ch4) || (datum.gas == 'nitrous_oxide' && show_n2o)"
+                }
+              ]
+            },
+            {
+              "data": {
+                "url": "data/altair-data-9506e435d13f018b37bd72f111dd9d7b.json",
+                "format": {
+                  "type": "json"
+                }
+              },
+              "mark": {
+                "type": "rule",
+                "color": "red",
+                "strokeDash": [
+                  4,
+                  4
+                ]
+              },
+              "encoding": {
+                "x": {
+                  "field": "year",
+                  "scale": {
+                    "domain": [
+                      1922,
+                      2022
+                    ]
+                  },
+                  "type": "quantitative"
+                }
+              }
+            },
+            {
+              "data": {
+                "url": "data/altair-data-a1e8a072a05506e74f764e8fe960fe7c.json",
+                "format": {
+                  "type": "json"
+                }
+              },
+              "mark": {
+                "type": "text",
+                "angle": 90,
+                "color": "red",
+                "dx": -5,
+                "dy": -5,
+                "text": "1992 (baseline)"
+              },
+              "encoding": {
+                "x": {
+                  "field": "year",
+                  "scale": {
+                    "domain": [
+                      1922,
+                      2022
+                    ]
+                  },
+                  "type": "quantitative"
+                }
+              }
+            }
+          ],
+          "height": 260,
+          "width": 600
+        }
+      ],
+      "spacing": 0
+    },
+    {
+      "hconcat": [
+        {
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "color": {
+              "field": "gas",
+              "legend": {
+                "labelExpr": "{'co2_including_luc':'CO\u2082 (including LUC)', 'methane':'Methane', 'nitrous_oxide':'Nitrous Oxide'}[datum.label]"
+              },
+              "scale": {
+                "domain": [
+                  "co2_including_luc",
+                  "methane",
+                  "nitrous_oxide"
+                ],
+                "range": [
+                  "#1f77b4",
+                  "#ff7f0e",
+                  "#2ca02c"
+                ]
+              },
+              "title": "Gas",
+              "type": "nominal"
+            },
+            "tooltip": [
+              {
+                "field": "Name",
+                "title": "Country",
+                "type": "nominal"
+              },
+              {
+                "field": "gas",
+                "title": "Gas",
+                "type": "nominal"
+              },
+              {
+                "field": "value",
+                "format": ",.2f",
+                "title": "Emissions",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "axis": {
+                "labels": false
+              },
+              "field": "year",
+              "title": "1992",
+              "type": "nominal"
+            },
+            "y": {
+              "field": "value",
+              "stack": "normalize",
+              "title": "Share of total emissions",
+              "type": "quantitative"
+            }
+          },
+          "height": 220,
+          "name": "view_1c8a9b9356c76631_0",
+          "transform": [
+            {
+              "filter": {
+                "param": "param_a7e229fe63649aaa"
+              }
+            },
+            {
+              "filter": "(datum.year === 1992)"
+            }
+          ],
+          "width": 120
+        },
+        {
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "color": {
+              "field": "gas",
+              "legend": {
+                "labelExpr": "{'co2_including_luc':'CO\u2082 (including LUC)', 'methane':'Methane', 'nitrous_oxide':'Nitrous Oxide'}[datum.label]"
+              },
+              "scale": {
+                "domain": [
+                  "co2_including_luc",
+                  "methane",
+                  "nitrous_oxide"
+                ],
+                "range": [
+                  "#1f77b4",
+                  "#ff7f0e",
+                  "#2ca02c"
+                ]
+              },
+              "title": "Gas",
+              "type": "nominal"
+            },
+            "tooltip": [
+              {
+                "field": "Name",
+                "title": "Country",
+                "type": "nominal"
+              },
+              {
+                "field": "gas",
+                "title": "Gas",
+                "type": "nominal"
+              },
+              {
+                "field": "value",
+                "format": ",.2f",
+                "title": "Emissions",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "axis": {
+                "labels": false
+              },
+              "field": "year",
+              "title": "2022",
+              "type": "nominal"
+            },
+            "y": {
+              "field": "value",
+              "stack": "normalize",
+              "title": "Share of total emissions",
+              "type": "quantitative"
+            }
+          },
+          "height": 220,
+          "name": "view_fba05d214bce5a69_1",
+          "transform": [
+            {
+              "filter": {
+                "param": "param_a7e229fe63649aaa"
+              }
+            },
+            {
+              "filter": "(datum.year === 2022)"
+            }
+          ],
+          "width": 120
+        }
+      ],
+      "data": {
+        "url": "data/altair-data-8bc844830a7354fd9ed895c3232cf6ab.json",
+        "format": {
+          "type": "json"
+        }
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "param_3aa587e56760617c",
+      "select": {
+        "type": "point",
+        "fields": [
+          "Name"
+        ]
+      },
+      "views": [
+        "view_0f662e8da4411bb3_0",
+        "view_33130024c71beb2f_0",
+        "view_f13d66a6e8a19d44_0",
+        "view_ac61d48fd748e0ff_0",
+        "view_1c8a9b9356c76631_0",
+        "view_fba05d214bce5a69_1"
+      ]
+    },
+    {
+      "name": "param_a7e229fe63649aaa",
+      "select": {
+        "type": "point",
+        "fields": [
+          "Name"
+        ]
+      },
+      "views": [
+        "view_0f662e8da4411bb3_0",
+        "view_f13d66a6e8a19d44_0",
+        "view_ac61d48fd748e0ff_0",
+        "view_1c8a9b9356c76631_0",
+        "view_fba05d214bce5a69_1",
+        "view_33130024c71beb2f_0"
+      ]
+    },
+    {
+      "name": "show_co2",
+      "bind": {
+        "input": "checkbox",
+        "name": "CO\u2082 (incl. LUC) "
+      },
+      "value": true
+    },
+    {
+      "name": "show_ch4",
+      "bind": {
+        "input": "checkbox",
+        "name": "Methane "
+      },
+      "value": true
+    },
+    {
+      "name": "show_n2o",
+      "bind": {
+        "input": "checkbox",
+        "name": "Nitrous oxide "
+      },
+      "value": true
+    }
+  ],
+  "resolve": {
+    "legend": {
+      "color": "independent"
+    },
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "spacing": 20,
+  "title": {
+    "text": " A Global Divide in Methane Trends: Western Nations Reduce, Emerging Economies Rise (1992\u20132022)",
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "anchor": "start",
+    "offset": 10
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json"
+}
