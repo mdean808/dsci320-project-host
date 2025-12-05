@@ -1,0 +1,314 @@
+{
+  "config": {
+    "view": {
+      "continuousWidth": 300,
+      "continuousHeight": 300
+    },
+    "title": {
+      "fontSize": 16
+    }
+  },
+  "vconcat": [
+    {
+      "data": {
+        "url": "data/altair-data-a0777da986087553b0105d0144fbbb73.json",
+        "format": {
+          "type": "json"
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 1,
+        "size": 80
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.Value < 0",
+            "value": "#6E8937"
+          },
+          "field": "Emission",
+          "scale": {
+            "domain": [
+              "land_use_change_co2",
+              "GHG_LUC"
+            ],
+            "range": [
+              "#E9A49D",
+              "#7DAEDF"
+            ]
+          },
+          "title": "Emission Type",
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": {
+            "param": "RegionSelection",
+            "value": 1.0,
+            "empty": true
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "continent_name",
+            "title": "Continent",
+            "type": "nominal"
+          },
+          {
+            "field": "Emission",
+            "title": "Emission Type",
+            "type": "nominal"
+          },
+          {
+            "field": "Value",
+            "format": ".0f",
+            "title": "Emission",
+            "type": "quantitative"
+          },
+          {
+            "field": "year",
+            "title": "Year",
+            "type": "quantitative"
+          }
+        ],
+        "x": {
+          "field": "Value",
+          "scale": {
+            "domain": [
+              -1500,
+              15000
+            ]
+          },
+          "title": "Emissions (Million Tonnes)",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "continent_name",
+          "sort": {
+            "field": "Value",
+            "order": "descending"
+          },
+          "title": "Region",
+          "type": "nominal"
+        }
+      },
+      "height": 250,
+      "name": "view_e9f12c5275ad661b_0",
+      "title": "Total CO2 and GHG Emissions from LUC",
+      "transform": [
+        {
+          "filter": {
+            "param": "Year"
+          }
+        },
+        {
+          "filter": "Emission == 'both' || (Emission == 'land_use_change_co2' && datum.Emission == 'land_use_change_co2') || (Emission == 'GHG_LUC' && datum.Emission == 'GHG_LUC')"
+        },
+        {
+          "filter": "(ShowWorld) || (datum.continent_name != 'World')"
+        }
+      ],
+      "width": 500
+    },
+    {
+      "data": {
+        "url": "data/altair-data-6414730a883226ebe198d311f929c105.json",
+        "format": {
+          "type": "json"
+        }
+      },
+      "mark": {
+        "type": "bar"
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.Proportion < 0",
+            "value": "#6E8937"
+          },
+          "field": "Emission",
+          "scale": {
+            "domain": [
+              "CO2_LUC_Prop",
+              "GHG_LUC_Prop"
+            ],
+            "range": [
+              "#E9A49D",
+              "#7DAEDF"
+            ]
+          },
+          "title": "Emission Type (Proportion)",
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": {
+            "param": "RegionSelection",
+            "value": 1.0,
+            "empty": true
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "continent_name",
+            "title": "Continent",
+            "type": "nominal"
+          },
+          {
+            "field": "Emission",
+            "title": "Emission Type",
+            "type": "nominal"
+          },
+          {
+            "field": "Proportion",
+            "format": ".0%",
+            "type": "quantitative"
+          },
+          {
+            "field": "year",
+            "title": "Year",
+            "type": "quantitative"
+          }
+        ],
+        "x": {
+          "axis": {
+            "format": "%"
+          },
+          "field": "Proportion",
+          "scale": {
+            "domain": [
+              -1,
+              1
+            ]
+          },
+          "stack": null,
+          "title": "Proportion (%)",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "continent_name",
+          "sort": {
+            "field": "Proportion",
+            "order": "descending"
+          },
+          "title": "Region",
+          "type": "nominal"
+        },
+        "yOffset": {
+          "field": "Emission",
+          "type": "nominal"
+        }
+      },
+      "height": 250,
+      "name": "view_47b27030e3f499c6_1",
+      "title": "Proportion of LUC Emissions by Region",
+      "transform": [
+        {
+          "filter": {
+            "param": "Year"
+          }
+        },
+        {
+          "filter": "EmissionsProp   == 'both' || (EmissionsProp  == 'CO2_LUC_Prop' && datum.Emission == 'CO2_LUC_Prop') || (EmissionsProp  == 'GHG_LUC_Prop' && datum.Emission == 'GHG_LUC_Prop')"
+        },
+        {
+          "filter": "(ShowWorld) || (datum.continent_name != 'World')"
+        }
+      ],
+      "width": 500
+    }
+  ],
+  "params": [
+    {
+      "name": "Year",
+      "select": {
+        "type": "point",
+        "fields": [
+          "year"
+        ]
+      },
+      "bind": {
+        "input": "range",
+        "max": 2022,
+        "min": 1922,
+        "name": "Year: ",
+        "step": 1
+      },
+      "value": 1922,
+      "views": [
+        "view_e9f12c5275ad661b_0",
+        "view_47b27030e3f499c6_1"
+      ]
+    },
+    {
+      "name": "ShowWorld",
+      "bind": {
+        "input": "checkbox",
+        "name": "Show World Region"
+      },
+      "value": false
+    },
+    {
+      "name": "Emission",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "both",
+          "land_use_change_co2",
+          "GHG_LUC"
+        ],
+        "labels": [
+          "Both",
+          "CO\u2082 only",
+          "GHG only"
+        ],
+        "name": "Emission: "
+      },
+      "value": "both"
+    },
+    {
+      "name": "RegionSelection",
+      "select": {
+        "type": "point",
+        "fields": [
+          "continent_name"
+        ],
+        "on": "click"
+      },
+      "views": [
+        "view_e9f12c5275ad661b_0",
+        "view_47b27030e3f499c6_1"
+      ]
+    },
+    {
+      "name": "EmissionsProp",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "both",
+          "CO2_LUC_Prop",
+          "GHG_LUC_Prop"
+        ],
+        "labels": [
+          "Both",
+          "CO\u2082 only",
+          "GHG only"
+        ],
+        "name": "Emission (Prop): "
+      },
+      "value": "both"
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "title": {
+    "text": "Land Use Change CO2 and GHG Emissions (1922-2022)",
+    "fontSize": 20,
+    "offset": 20
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json"
+}

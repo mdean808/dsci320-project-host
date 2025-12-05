@@ -1,0 +1,1489 @@
+{
+  "config": {
+    "view": {
+      "continuousWidth": 300,
+      "continuousHeight": 300
+    }
+  },
+  "hconcat": [
+    {
+      "vconcat": [
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 200
+              },
+              "encoding": {
+                "color": {
+                  "condition": {
+                    "param": "param_a7e229fe63649aaa",
+                    "value": "lightcoral"
+                  },
+                  "field": "continent_name",
+                  "legend": null,
+                  "scale": {
+                    "domain": [
+                      "Africa",
+                      "Asia",
+                      "Europe",
+                      "North America",
+                      "Oceania",
+                      "South America"
+                    ],
+                    "range": [
+                      "#0B97F4",
+                      "#25B7B0",
+                      "#4CAF50",
+                      "#F2C84B",
+                      "#7E6BEF",
+                      "#5A6E82"
+                    ]
+                  },
+                  "title": "Region",
+                  "type": "nominal"
+                },
+                "opacity": {
+                  "condition": [
+                    {
+                      "param": "param_af13ea6592b457fc",
+                      "value": 1
+                    }
+                  ],
+                  "value": 0
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "year",
+                    "title": "Year",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "methane",
+                    "format": ",.2f",
+                    "title": "Methane (in million tonnes of CO2 equivalents)",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "methane_per_capita",
+                    "format": ",.6f",
+                    "title": "Methane per capita",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "population",
+                    "format": ",.0f",
+                    "title": "Population",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "field": "methane",
+                  "title": "Methane emissions (in million tonnes of CO2 equivalents)",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "Name",
+                  "sort": "-x",
+                  "title": null,
+                  "type": "nominal"
+                }
+              },
+              "name": "view_5e0da5119b523176_0",
+              "title": "Top 15 total methane emitters",
+              "transform": [
+                {
+                  "filter": {
+                    "field": "Name",
+                    "oneOf": [
+                      "China",
+                      "India",
+                      "United States",
+                      "Brazil",
+                      "Russia",
+                      "Indonesia",
+                      "Nigeria",
+                      "Pakistan",
+                      "Iran",
+                      "Mexico",
+                      "Iraq",
+                      "Saudi Arabia",
+                      "Argentina",
+                      "Australia",
+                      "Ethiopia"
+                    ]
+                  }
+                },
+                {
+                  "calculate": "'region'",
+                  "as": "mode"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 200
+              },
+              "encoding": {
+                "color": {
+                  "condition": [
+                    {
+                      "param": "param_a7e229fe63649aaa",
+                      "value": "lightcoral"
+                    }
+                  ],
+                  "value": "#0B97F4"
+                },
+                "opacity": {
+                  "condition": [
+                    {
+                      "param": "param_af13ea6592b457fc",
+                      "value": 1
+                    }
+                  ],
+                  "value": 0
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "year",
+                    "title": "Year",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "methane",
+                    "format": ",.2f",
+                    "title": "Methane (in million tonnes of CO2 equivalents)",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "methane_per_capita",
+                    "format": ",.6f",
+                    "title": "Methane per capita",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "population",
+                    "format": ",.0f",
+                    "title": "Population",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "field": "methane",
+                  "title": "Methane emissions (in million tonnes of CO2 equivalents)",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "Name",
+                  "sort": "-x",
+                  "title": null,
+                  "type": "nominal"
+                }
+              },
+              "title": "Top 15 total methane emitters",
+              "transform": [
+                {
+                  "filter": {
+                    "field": "Name",
+                    "oneOf": [
+                      "China",
+                      "India",
+                      "United States",
+                      "Brazil",
+                      "Russia",
+                      "Indonesia",
+                      "Nigeria",
+                      "Pakistan",
+                      "Iran",
+                      "Mexico",
+                      "Iraq",
+                      "Saudi Arabia",
+                      "Argentina",
+                      "Australia",
+                      "Ethiopia"
+                    ]
+                  }
+                },
+                {
+                  "calculate": "'default'",
+                  "as": "mode"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 200
+              },
+              "encoding": {
+                "color": {
+                  "condition": {
+                    "param": "param_a7e229fe63649aaa",
+                    "value": "lightcoral"
+                  },
+                  "field": "income_group",
+                  "legend": null,
+                  "scale": {
+                    "domain": [
+                      "Low income",
+                      "Lower-middle income",
+                      "Upper-middle income",
+                      "High income"
+                    ],
+                    "range": [
+                      "#BBE2FC",
+                      "#63BCF8",
+                      "#0B97F4",
+                      "#07609C"
+                    ]
+                  },
+                  "title": "Income group",
+                  "type": "nominal"
+                },
+                "opacity": {
+                  "condition": [
+                    {
+                      "param": "param_af13ea6592b457fc",
+                      "value": 1
+                    }
+                  ],
+                  "value": 0
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "year",
+                    "title": "Year",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "methane",
+                    "format": ",.2f",
+                    "title": "Methane (in million tonnes of CO2 equivalents)",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "methane_per_capita",
+                    "format": ",.6f",
+                    "title": "Methane per capita",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "population",
+                    "format": ",.0f",
+                    "title": "Population",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "field": "methane",
+                  "title": "Methane emissions (in million tonnes of CO2 equivalents)",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "Name",
+                  "sort": "-x",
+                  "title": null,
+                  "type": "nominal"
+                }
+              },
+              "title": "Top 15 total methane emitters",
+              "transform": [
+                {
+                  "filter": {
+                    "field": "Name",
+                    "oneOf": [
+                      "China",
+                      "India",
+                      "United States",
+                      "Brazil",
+                      "Russia",
+                      "Indonesia",
+                      "Nigeria",
+                      "Pakistan",
+                      "Iran",
+                      "Mexico",
+                      "Iraq",
+                      "Saudi Arabia",
+                      "Argentina",
+                      "Australia",
+                      "Ethiopia"
+                    ]
+                  }
+                },
+                {
+                  "calculate": "'income'",
+                  "as": "mode"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "point",
+                "color": "#F40B0B",
+                "filled": true,
+                "shape": "diamond",
+                "size": 400
+              },
+              "encoding": {
+                "x": {
+                  "field": "methane",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "Name",
+                  "sort": "-x",
+                  "type": "nominal"
+                }
+              },
+              "title": "Top 15 total methane emitters",
+              "transform": [
+                {
+                  "filter": {
+                    "param": "param_a7e229fe63649aaa"
+                  }
+                }
+              ]
+            }
+          ],
+          "height": 250,
+          "resolve": {
+            "scale": {
+              "color": "independent"
+            }
+          },
+          "width": 250
+        },
+        {
+          "vconcat": [
+            {
+              "layer": [
+                {
+                  "mark": {
+                    "type": "circle",
+                    "size": 70
+                  },
+                  "encoding": {
+                    "color": {
+                      "condition": {
+                        "param": "param_a7e229fe63649aaa",
+                        "value": "lightcoral"
+                      },
+                      "field": "continent_name",
+                      "legend": null,
+                      "scale": {
+                        "domain": [
+                          "Africa",
+                          "Asia",
+                          "Europe",
+                          "North America",
+                          "Oceania",
+                          "South America"
+                        ],
+                        "range": [
+                          "#0B97F4",
+                          "#25B7B0",
+                          "#4CAF50",
+                          "#F2C84B",
+                          "#7E6BEF",
+                          "#5A6E82"
+                        ]
+                      },
+                      "title": "Region",
+                      "type": "nominal"
+                    },
+                    "opacity": {
+                      "condition": [
+                        {
+                          "param": "param_af13ea6592b457fc",
+                          "value": 1
+                        }
+                      ],
+                      "value": 0
+                    },
+                    "x": {
+                      "value": 0
+                    },
+                    "y": {
+                      "field": "continent_name",
+                      "title": null,
+                      "type": "nominal"
+                    }
+                  },
+                  "name": "view_f022762a0ea6af6c_0",
+                  "title": "Region",
+                  "transform": [
+                    {
+                      "aggregate": [],
+                      "groupby": [
+                        "continent_name"
+                      ]
+                    },
+                    {
+                      "calculate": "'region'",
+                      "as": "mode"
+                    }
+                  ]
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 8
+                  },
+                  "encoding": {
+                    "opacity": {
+                      "condition": [
+                        {
+                          "param": "param_af13ea6592b457fc",
+                          "value": 1
+                        }
+                      ],
+                      "value": 0
+                    },
+                    "text": {
+                      "field": "continent_name",
+                      "type": "nominal"
+                    },
+                    "x": {
+                      "value": 0
+                    },
+                    "y": {
+                      "axis": {
+                        "labels": false,
+                        "ticks": false
+                      },
+                      "field": "continent_name",
+                      "type": "nominal"
+                    }
+                  },
+                  "title": "Region",
+                  "transform": [
+                    {
+                      "aggregate": [],
+                      "groupby": [
+                        "continent_name"
+                      ]
+                    },
+                    {
+                      "calculate": "'region'",
+                      "as": "mode"
+                    }
+                  ]
+                }
+              ],
+              "height": 120,
+              "width": 120
+            },
+            {
+              "layer": [
+                {
+                  "mark": {
+                    "type": "circle",
+                    "size": 70
+                  },
+                  "encoding": {
+                    "color": {
+                      "condition": {
+                        "param": "param_a7e229fe63649aaa",
+                        "value": "lightcoral"
+                      },
+                      "field": "income_group",
+                      "legend": null,
+                      "scale": {
+                        "domain": [
+                          "Low income",
+                          "Lower-middle income",
+                          "Upper-middle income",
+                          "High income"
+                        ],
+                        "range": [
+                          "#BBE2FC",
+                          "#63BCF8",
+                          "#0B97F4",
+                          "#07609C"
+                        ]
+                      },
+                      "title": "Income group",
+                      "type": "nominal"
+                    },
+                    "opacity": {
+                      "condition": [
+                        {
+                          "param": "param_af13ea6592b457fc",
+                          "value": 1
+                        }
+                      ],
+                      "value": 0
+                    },
+                    "x": {
+                      "value": 0
+                    },
+                    "y": {
+                      "field": "income_group",
+                      "sort": [
+                        "Low income",
+                        "Lower-middle income",
+                        "Upper-middle income",
+                        "High income"
+                      ],
+                      "title": null,
+                      "type": "nominal"
+                    }
+                  },
+                  "name": "view_45587fa9d802e2a3_0",
+                  "title": "Income group",
+                  "transform": [
+                    {
+                      "filter": "datum.income_group != null"
+                    },
+                    {
+                      "aggregate": [],
+                      "groupby": [
+                        "income_group"
+                      ]
+                    },
+                    {
+                      "calculate": "'income'",
+                      "as": "mode"
+                    }
+                  ]
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 8
+                  },
+                  "encoding": {
+                    "opacity": {
+                      "condition": [
+                        {
+                          "param": "param_af13ea6592b457fc",
+                          "value": 1
+                        }
+                      ],
+                      "value": 0
+                    },
+                    "text": {
+                      "field": "income_group",
+                      "type": "nominal"
+                    },
+                    "x": {
+                      "value": 0
+                    },
+                    "y": {
+                      "axis": {
+                        "labels": false,
+                        "ticks": false
+                      },
+                      "field": "income_group",
+                      "sort": [
+                        "Low income",
+                        "Lower-middle income",
+                        "Upper-middle income",
+                        "High income"
+                      ],
+                      "type": "nominal"
+                    }
+                  },
+                  "title": "Income group",
+                  "transform": [
+                    {
+                      "filter": "datum.income_group != null"
+                    },
+                    {
+                      "aggregate": [],
+                      "groupby": [
+                        "income_group"
+                      ]
+                    },
+                    {
+                      "calculate": "'income'",
+                      "as": "mode"
+                    }
+                  ]
+                }
+              ],
+              "height": 120,
+              "width": 140
+            }
+          ],
+          "resolve": {
+            "scale": {
+              "color": "independent"
+            }
+          }
+        }
+      ],
+      "data": {
+        "url": "data/altair-data-2934b82d4293c7369656f405ca3e3e91.json",
+        "format": {
+          "type": "json"
+        }
+      }
+    },
+    {
+      "vconcat": [
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "bar",
+                "filled": true,
+                "stroke": "lightgray"
+              },
+              "encoding": {
+                "color": {
+                  "value": "#0B97F4"
+                },
+                "x": {
+                  "axis": null,
+                  "field": "shading",
+                  "scale": {
+                    "domain": [
+                      0,
+                      1
+                    ]
+                  },
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "label",
+                  "sort": {
+                    "field": "order",
+                    "order": "descending"
+                  },
+                  "title": null,
+                  "type": "nominal"
+                }
+              },
+              "name": "view_27842031094cfb78_0",
+              "title": "Population bins"
+            },
+            {
+              "mark": {
+                "type": "text",
+                "baseline": "middle",
+                "dx": 35
+              },
+              "encoding": {
+                "text": {
+                  "field": "description",
+                  "type": "nominal"
+                },
+                "x": {
+                  "field": "shading",
+                  "scale": {
+                    "domain": [
+                      0,
+                      1
+                    ]
+                  },
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "label",
+                  "sort": {
+                    "field": "order",
+                    "order": "descending"
+                  },
+                  "type": "nominal"
+                }
+              }
+            }
+          ],
+          "data": {
+            "url": "data/altair-data-e54cedb1d1cd6b3248d3518435b841f8.json",
+            "format": {
+              "type": "json"
+            }
+          },
+          "height": {
+            "step": 18
+          },
+          "width": 110
+        },
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "bar",
+                "fillOpacity": 0,
+                "stroke": "lightgray"
+              },
+              "encoding": {
+                "x": {
+                  "axis": null,
+                  "field": "zero",
+                  "scale": {
+                    "domain": [
+                      0,
+                      1
+                    ]
+                  },
+                  "type": "quantitative"
+                },
+                "x2": {
+                  "field": "one"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "Name",
+                  "type": "nominal"
+                }
+              },
+              "name": "view_3f53f533fa60ad10_0",
+              "title": "Population shading by country",
+              "transform": [
+                {
+                  "calculate": "0",
+                  "as": "zero"
+                },
+                {
+                  "calculate": "1",
+                  "as": "one"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "bar"
+              },
+              "encoding": {
+                "color": {
+                  "condition": [
+                    {
+                      "param": "param_a7e229fe63649aaa",
+                      "value": "lightcoral"
+                    }
+                  ],
+                  "value": "#0B97F4"
+                },
+                "opacity": {
+                  "condition": [
+                    {
+                      "param": "param_af13ea6592b457fc",
+                      "value": 1
+                    }
+                  ],
+                  "value": 0
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "population",
+                    "format": ",.0f",
+                    "title": "Population",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "population_shading",
+                    "format": ".0%",
+                    "title": "Shading",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "axis": null,
+                  "field": "population_shading",
+                  "scale": {
+                    "domain": [
+                      0,
+                      1
+                    ]
+                  },
+                  "title": " ",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "Name",
+                  "sort": "-x",
+                  "type": "nominal"
+                }
+              },
+              "title": "Population shading by country",
+              "transform": [
+                {
+                  "calculate": "'default'",
+                  "as": "mode"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "bar"
+              },
+              "encoding": {
+                "color": {
+                  "condition": {
+                    "param": "param_a7e229fe63649aaa",
+                    "value": "lightcoral"
+                  },
+                  "field": "continent_name",
+                  "legend": null,
+                  "scale": {
+                    "domain": [
+                      "Africa",
+                      "Asia",
+                      "Europe",
+                      "North America",
+                      "Oceania",
+                      "South America"
+                    ],
+                    "range": [
+                      "#0B97F4",
+                      "#25B7B0",
+                      "#4CAF50",
+                      "#F2C84B",
+                      "#7E6BEF",
+                      "#5A6E82"
+                    ]
+                  },
+                  "title": "Region",
+                  "type": "nominal"
+                },
+                "opacity": {
+                  "condition": [
+                    {
+                      "param": "param_af13ea6592b457fc",
+                      "value": 1
+                    }
+                  ],
+                  "value": 0
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "population",
+                    "format": ",.0f",
+                    "title": "Population",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "population_shading",
+                    "format": ".0%",
+                    "title": "Shading",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "axis": null,
+                  "field": "population_shading",
+                  "scale": {
+                    "domain": [
+                      0,
+                      1
+                    ]
+                  },
+                  "title": " ",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "Name",
+                  "sort": "-x",
+                  "type": "nominal"
+                }
+              },
+              "title": "Population shading by country",
+              "transform": [
+                {
+                  "calculate": "'region'",
+                  "as": "mode"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "bar"
+              },
+              "encoding": {
+                "color": {
+                  "condition": {
+                    "param": "param_a7e229fe63649aaa",
+                    "value": "lightcoral"
+                  },
+                  "field": "income_group",
+                  "legend": null,
+                  "scale": {
+                    "domain": [
+                      "Low income",
+                      "Lower-middle income",
+                      "Upper-middle income",
+                      "High income"
+                    ],
+                    "range": [
+                      "#BBE2FC",
+                      "#63BCF8",
+                      "#0B97F4",
+                      "#07609C"
+                    ]
+                  },
+                  "title": "Income group",
+                  "type": "nominal"
+                },
+                "opacity": {
+                  "condition": [
+                    {
+                      "param": "param_af13ea6592b457fc",
+                      "value": 1
+                    }
+                  ],
+                  "value": 0
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "population",
+                    "format": ",.0f",
+                    "title": "Population",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "population_shading",
+                    "format": ".0%",
+                    "title": "Shading",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "axis": null,
+                  "field": "population_shading",
+                  "scale": {
+                    "domain": [
+                      0,
+                      1
+                    ]
+                  },
+                  "title": " ",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "Name",
+                  "sort": "-x",
+                  "type": "nominal"
+                }
+              },
+              "title": "Population shading by country",
+              "transform": [
+                {
+                  "calculate": "'income'",
+                  "as": "mode"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "text",
+                "baseline": "middle"
+              },
+              "encoding": {
+                "color": {
+                  "value": "black"
+                },
+                "text": {
+                  "field": "Name",
+                  "type": "nominal"
+                },
+                "x": {
+                  "value": 55
+                },
+                "y": {
+                  "axis": null,
+                  "field": "Name",
+                  "sort": {
+                    "field": "order",
+                    "order": "descending"
+                  },
+                  "type": "nominal"
+                }
+              },
+              "title": "Population shading by country"
+            }
+          ],
+          "data": {
+            "url": "data/altair-data-2934b82d4293c7369656f405ca3e3e91.json",
+            "format": {
+              "type": "json"
+            }
+          },
+          "height": {
+            "step": 18
+          },
+          "resolve": {
+            "scale": {
+              "color": "independent"
+            }
+          },
+          "width": 110
+        }
+      ]
+    },
+    {
+      "layer": [
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 200
+          },
+          "encoding": {
+            "color": {
+              "condition": [
+                {
+                  "param": "param_a7e229fe63649aaa",
+                  "value": "lightcoral"
+                }
+              ],
+              "value": "#0B97F4"
+            },
+            "opacity": {
+              "condition": [
+                {
+                  "param": "param_af13ea6592b457fc",
+                  "value": 1
+                }
+              ],
+              "value": 0
+            },
+            "tooltip": [
+              {
+                "field": "Name",
+                "title": "Country",
+                "type": "nominal"
+              },
+              {
+                "field": "year",
+                "title": "Year",
+                "type": "quantitative"
+              },
+              {
+                "field": "methane",
+                "format": ",.2f",
+                "title": "Methane (in million tonnes of CO2 equivalents)",
+                "type": "quantitative"
+              },
+              {
+                "field": "methane_per_capita",
+                "format": ",.6f",
+                "title": "Methane per capita",
+                "type": "quantitative"
+              },
+              {
+                "field": "population",
+                "format": ",.0f",
+                "title": "Population",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "field": "methane_per_capita",
+              "title": "Methane per capita (in million tonnes of CO2 equivalents per person)",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Name",
+              "sort": "-x",
+              "title": null,
+              "type": "nominal"
+            }
+          },
+          "name": "view_39db5856b70f76f5_0",
+          "title": "Top 15 methane per capita emitters",
+          "transform": [
+            {
+              "filter": {
+                "field": "Name",
+                "oneOf": [
+                  "Qatar",
+                  "Bahrain",
+                  "Brunei",
+                  "Trinidad and Tobago",
+                  "Mongolia",
+                  "Oman",
+                  "Kuwait",
+                  "Uruguay",
+                  "Turkmenistan",
+                  "New Zealand",
+                  "United Arab Emirates",
+                  "Libya",
+                  "Australia",
+                  "Gabon",
+                  "Norway"
+                ]
+              }
+            },
+            {
+              "calculate": "'default'",
+              "as": "mode"
+            }
+          ]
+        },
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 200
+          },
+          "encoding": {
+            "color": {
+              "condition": {
+                "param": "param_a7e229fe63649aaa",
+                "value": "lightcoral"
+              },
+              "field": "continent_name",
+              "legend": null,
+              "scale": {
+                "domain": [
+                  "Africa",
+                  "Asia",
+                  "Europe",
+                  "North America",
+                  "Oceania",
+                  "South America"
+                ],
+                "range": [
+                  "#0B97F4",
+                  "#25B7B0",
+                  "#4CAF50",
+                  "#F2C84B",
+                  "#7E6BEF",
+                  "#5A6E82"
+                ]
+              },
+              "title": "Region",
+              "type": "nominal"
+            },
+            "opacity": {
+              "condition": [
+                {
+                  "param": "param_af13ea6592b457fc",
+                  "value": 1
+                }
+              ],
+              "value": 0
+            },
+            "tooltip": [
+              {
+                "field": "Name",
+                "title": "Country",
+                "type": "nominal"
+              },
+              {
+                "field": "year",
+                "title": "Year",
+                "type": "quantitative"
+              },
+              {
+                "field": "methane",
+                "format": ",.2f",
+                "title": "Methane (in million tonnes of CO2 equivalents)",
+                "type": "quantitative"
+              },
+              {
+                "field": "methane_per_capita",
+                "format": ",.6f",
+                "title": "Methane per capita",
+                "type": "quantitative"
+              },
+              {
+                "field": "population",
+                "format": ",.0f",
+                "title": "Population",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "field": "methane_per_capita",
+              "title": "Methane per capita (in million tonnes of CO2 equivalents per person)",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Name",
+              "sort": "-x",
+              "title": null,
+              "type": "nominal"
+            }
+          },
+          "title": "Top 15 methane per capita emitters",
+          "transform": [
+            {
+              "filter": {
+                "field": "Name",
+                "oneOf": [
+                  "Qatar",
+                  "Bahrain",
+                  "Brunei",
+                  "Trinidad and Tobago",
+                  "Mongolia",
+                  "Oman",
+                  "Kuwait",
+                  "Uruguay",
+                  "Turkmenistan",
+                  "New Zealand",
+                  "United Arab Emirates",
+                  "Libya",
+                  "Australia",
+                  "Gabon",
+                  "Norway"
+                ]
+              }
+            },
+            {
+              "calculate": "'region'",
+              "as": "mode"
+            }
+          ]
+        },
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 200
+          },
+          "encoding": {
+            "color": {
+              "condition": {
+                "param": "param_a7e229fe63649aaa",
+                "value": "lightcoral"
+              },
+              "field": "income_group",
+              "legend": null,
+              "scale": {
+                "domain": [
+                  "Low income",
+                  "Lower-middle income",
+                  "Upper-middle income",
+                  "High income"
+                ],
+                "range": [
+                  "#BBE2FC",
+                  "#63BCF8",
+                  "#0B97F4",
+                  "#07609C"
+                ]
+              },
+              "title": "Income group",
+              "type": "nominal"
+            },
+            "opacity": {
+              "condition": [
+                {
+                  "param": "param_af13ea6592b457fc",
+                  "value": 1
+                }
+              ],
+              "value": 0
+            },
+            "tooltip": [
+              {
+                "field": "Name",
+                "title": "Country",
+                "type": "nominal"
+              },
+              {
+                "field": "year",
+                "title": "Year",
+                "type": "quantitative"
+              },
+              {
+                "field": "methane",
+                "format": ",.2f",
+                "title": "Methane (in million tonnes of CO2 equivalents)",
+                "type": "quantitative"
+              },
+              {
+                "field": "methane_per_capita",
+                "format": ",.6f",
+                "title": "Methane per capita",
+                "type": "quantitative"
+              },
+              {
+                "field": "population",
+                "format": ",.0f",
+                "title": "Population",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "field": "methane_per_capita",
+              "title": "Methane per capita (in million tonnes of CO2 equivalents per person)",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Name",
+              "sort": "-x",
+              "title": null,
+              "type": "nominal"
+            }
+          },
+          "title": "Top 15 methane per capita emitters",
+          "transform": [
+            {
+              "filter": {
+                "field": "Name",
+                "oneOf": [
+                  "Qatar",
+                  "Bahrain",
+                  "Brunei",
+                  "Trinidad and Tobago",
+                  "Mongolia",
+                  "Oman",
+                  "Kuwait",
+                  "Uruguay",
+                  "Turkmenistan",
+                  "New Zealand",
+                  "United Arab Emirates",
+                  "Libya",
+                  "Australia",
+                  "Gabon",
+                  "Norway"
+                ]
+              }
+            },
+            {
+              "calculate": "'income'",
+              "as": "mode"
+            }
+          ]
+        },
+        {
+          "mark": {
+            "type": "point",
+            "color": "#F40B0B",
+            "filled": true,
+            "shape": "diamond",
+            "size": 400
+          },
+          "encoding": {
+            "x": {
+              "field": "methane_per_capita",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Name",
+              "sort": "-x",
+              "type": "nominal"
+            }
+          },
+          "title": "Top 15 methane per capita emitters",
+          "transform": [
+            {
+              "filter": {
+                "param": "param_a7e229fe63649aaa"
+              }
+            }
+          ]
+        }
+      ],
+      "data": {
+        "url": "data/altair-data-2934b82d4293c7369656f405ca3e3e91.json",
+        "format": {
+          "type": "json"
+        }
+      },
+      "height": 250,
+      "resolve": {
+        "scale": {
+          "color": "independent"
+        }
+      },
+      "width": 250
+    }
+  ],
+  "params": [
+    {
+      "name": "param_a7e229fe63649aaa",
+      "select": {
+        "type": "point",
+        "fields": [
+          "Name"
+        ]
+      },
+      "views": [
+        "view_5e0da5119b523176_0",
+        "view_f022762a0ea6af6c_0",
+        "view_45587fa9d802e2a3_0",
+        "view_27842031094cfb78_0",
+        "view_3f53f533fa60ad10_0",
+        "view_39db5856b70f76f5_0"
+      ]
+    },
+    {
+      "name": "param_af13ea6592b457fc",
+      "select": {
+        "type": "point",
+        "fields": [
+          "mode"
+        ]
+      },
+      "bind": {
+        "input": "radio",
+        "options": [
+          "default",
+          "region",
+          "income"
+        ],
+        "name": "Color by: "
+      },
+      "value": "default",
+      "views": [
+        "view_5e0da5119b523176_0",
+        "view_f022762a0ea6af6c_0",
+        "view_45587fa9d802e2a3_0",
+        "view_27842031094cfb78_0",
+        "view_3f53f533fa60ad10_0",
+        "view_39db5856b70f76f5_0"
+      ]
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  },
+  "title": {
+    "text": " Total vs. Per-Capita Methane: Big Countries Lead Total Emissions, Small Countries Lead Per-Person Emissions",
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "anchor": "start",
+    "offset": 10
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json"
+}

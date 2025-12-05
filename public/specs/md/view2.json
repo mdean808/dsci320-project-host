@@ -1,0 +1,833 @@
+{
+  "config": {
+    "view": {
+      "continuousWidth": 300,
+      "continuousHeight": 300,
+      "strokeWidth": 0
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    }
+  },
+  "hconcat": [
+    {
+      "vconcat": [
+        {
+          "data": {
+            "url": "data/altair-data-c82abdceaa253d20fb298c9754a9ee9e.json",
+            "format": {
+              "type": "json"
+            }
+          },
+          "mark": {
+            "type": "circle"
+          },
+          "encoding": {
+            "color": {
+              "condition": {
+                "param": "brush_select",
+                "field": "Continent",
+                "legend": {
+                  "orient": "right",
+                  "title": "Continent"
+                },
+                "scale": {
+                  "domain": [
+                    "Africa",
+                    "Asia",
+                    "Europe",
+                    "North America",
+                    "Oceania",
+                    "South America"
+                  ],
+                  "range": [
+                    "#e41a1c",
+                    "#377eb8",
+                    "#4daf4a",
+                    "#984ea3",
+                    "#ff7f00",
+                    "#a65628"
+                  ]
+                },
+                "type": "nominal"
+              },
+              "value": "#cccccc"
+            },
+            "opacity": {
+              "condition": {
+                "param": "brush_select",
+                "value": 0.8
+              },
+              "value": 0.3
+            },
+            "size": {
+              "field": "population",
+              "legend": {
+                "orient": "right",
+                "title": "Population"
+              },
+              "scale": {
+                "range": [
+                  30,
+                  1000
+                ],
+                "type": "sqrt"
+              },
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "Name",
+                "title": "Country",
+                "type": "nominal"
+              },
+              {
+                "field": "Continent",
+                "title": "Continent",
+                "type": "nominal"
+              },
+              {
+                "field": "transition_speed",
+                "format": ".3f",
+                "title": "Transition Speed",
+                "type": "quantitative"
+              },
+              {
+                "field": "gdp_per_capita",
+                "format": ",.0f",
+                "title": "GDP per Capita",
+                "type": "quantitative"
+              },
+              {
+                "field": "population",
+                "format": ",.0f",
+                "title": "Population",
+                "type": "quantitative"
+              },
+              {
+                "field": "period",
+                "title": "Time Period",
+                "type": "nominal"
+              }
+            ],
+            "x": {
+              "axis": {
+                "format": "~s"
+              },
+              "field": "gdp_per_capita",
+              "scale": {
+                "type": "log"
+              },
+              "title": "GDP per Capita ($)",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "transition_speed",
+              "title": "Transition Speed (%/year)",
+              "type": "quantitative"
+            }
+          },
+          "height": 400,
+          "name": "view_4e42848d87e8407b_0",
+          "title": {
+            "text": "Emission Transition Speed by Country",
+            "subtitle": "Brush to select countries for composition chart, click for detail"
+          },
+          "transform": [
+            {
+              "filter": "datum.period == selected_period"
+            },
+            {
+              "filter": "(selected_continent == null) || (datum.Continent == selected_continent)"
+            }
+          ],
+          "width": 500
+        },
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "area"
+              },
+              "encoding": {
+                "color": {
+                  "field": "emission_label",
+                  "legend": {
+                    "title": "Source"
+                  },
+                  "scale": {
+                    "domain": [
+                      "Coal",
+                      "Gas",
+                      "Oil",
+                      "Cement",
+                      "Flaring"
+                    ],
+                    "range": [
+                      "#1a1a1a",
+                      "#6baed6",
+                      "#c994c7",
+                      "#bdbdbd",
+                      "#fdae6b"
+                    ]
+                  },
+                  "type": "nominal"
+                },
+                "order": {
+                  "field": "emission_order",
+                  "type": "quantitative"
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "year",
+                    "title": "Year",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "emission_label",
+                    "title": "Source",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "emissions",
+                    "format": ",.1f",
+                    "title": "Emissions (Mt)",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "field": "year",
+                  "scale": {
+                    "domain": [
+                      1922,
+                      2022
+                    ]
+                  },
+                  "title": "Year",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "emissions",
+                  "stack": "zero",
+                  "title": "CO2 Emissions (Million Tons)",
+                  "type": "quantitative"
+                }
+              },
+              "name": "view_525f8b2c118e50f4_0",
+              "transform": [
+                {
+                  "filter": "datum.Name == \"Global\""
+                },
+                {
+                  "filter": "length(data(\"country_click_store\")) == 0"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "area"
+              },
+              "encoding": {
+                "color": {
+                  "field": "emission_label",
+                  "legend": {
+                    "title": "Source"
+                  },
+                  "scale": {
+                    "domain": [
+                      "Coal",
+                      "Gas",
+                      "Oil",
+                      "Cement",
+                      "Flaring"
+                    ],
+                    "range": [
+                      "#1a1a1a",
+                      "#6baed6",
+                      "#c994c7",
+                      "#bdbdbd",
+                      "#fdae6b"
+                    ]
+                  },
+                  "type": "nominal"
+                },
+                "order": {
+                  "field": "emission_order",
+                  "type": "quantitative"
+                },
+                "tooltip": [
+                  {
+                    "field": "Name",
+                    "title": "Country",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "year",
+                    "title": "Year",
+                    "type": "quantitative"
+                  },
+                  {
+                    "field": "emission_label",
+                    "title": "Source",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "emissions",
+                    "format": ",.1f",
+                    "title": "Emissions (Mt)",
+                    "type": "quantitative"
+                  }
+                ],
+                "x": {
+                  "field": "year",
+                  "scale": {
+                    "domain": [
+                      1922,
+                      2022
+                    ]
+                  },
+                  "title": "Year",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "emissions",
+                  "stack": "zero",
+                  "title": "CO2 Emissions (Million Tons)",
+                  "type": "quantitative"
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.Name != \"Global\""
+                },
+                {
+                  "filter": "length(data(\"country_click_store\")) > 0"
+                },
+                {
+                  "filter": {
+                    "param": "country_click",
+                    "empty": true
+                  }
+                }
+              ]
+            },
+            {
+              "data": {
+                "url": "data/altair-data-7d8ad278eecdfc4530c03ad192295138.json",
+                "format": {
+                  "type": "json"
+                }
+              },
+              "mark": {
+                "type": "rule",
+                "color": "gray",
+                "opacity": 0.7,
+                "strokeDash": [
+                  4,
+                  4
+                ],
+                "strokeWidth": 1
+              },
+              "encoding": {
+                "x": {
+                  "field": "year",
+                  "type": "quantitative"
+                }
+              }
+            },
+            {
+              "data": {
+                "url": "data/altair-data-7d8ad278eecdfc4530c03ad192295138.json",
+                "format": {
+                  "type": "json"
+                }
+              },
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "angle": 270,
+                "color": "gray",
+                "dx": 3,
+                "dy": -5,
+                "fontSize": 9
+              },
+              "encoding": {
+                "text": {
+                  "field": "event",
+                  "type": "nominal"
+                },
+                "x": {
+                  "field": "year",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "value": 10
+                }
+              }
+            }
+          ],
+          "data": {
+            "url": "data/altair-data-8637ba774df937f967effa092ce0fd97.json",
+            "format": {
+              "type": "json"
+            }
+          },
+          "height": 250,
+          "title": {
+            "text": "Absolute CO2 Emissions Over Time",
+            "subtitle": "Click a country in scatter plot to view its emission history"
+          },
+          "width": 500
+        }
+      ],
+      "resolve": {
+        "legend": {
+          "color": "independent",
+          "size": "independent"
+        },
+        "scale": {
+          "color": "independent",
+          "size": "independent"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/altair-data-0ff0b540ba69c21c1caed9aa3cab9ea4.json",
+        "format": {
+          "type": "json"
+        }
+      },
+      "facet": {
+        "row": {
+          "field": "Continent",
+          "sort": [
+            "Africa",
+            "Asia",
+            "Europe",
+            "North America",
+            "Oceania",
+            "South America"
+          ],
+          "title": "Region",
+          "type": "nominal"
+        }
+      },
+      "spec": {
+        "layer": [
+          {
+            "mark": {
+              "type": "rule",
+              "strokeWidth": 2
+            },
+            "encoding": {
+              "color": {
+                "field": "Source",
+                "legend": null,
+                "scale": {
+                  "domain": [
+                    "Coal",
+                    "Gas",
+                    "Oil",
+                    "Cement",
+                    "Flaring"
+                  ],
+                  "range": [
+                    "#1a1a1a",
+                    "#6baed6",
+                    "#c994c7",
+                    "#bdbdbd",
+                    "#fdae6b"
+                  ]
+                },
+                "type": "nominal"
+              },
+              "x": {
+                "field": "start_share",
+                "scale": {
+                  "domain": [
+                    0,
+                    100
+                  ]
+                },
+                "title": "Share (%)",
+                "type": "quantitative"
+              },
+              "x2": {
+                "field": "end_share"
+              },
+              "y": {
+                "field": "Source",
+                "sort": [
+                  "Coal",
+                  "Oil",
+                  "Gas",
+                  "Cement",
+                  "Flaring"
+                ],
+                "title": "Emission Source",
+                "type": "nominal"
+              }
+            },
+            "name": "view_39ff4c4a5256e2c6_0",
+            "transform": [
+              {
+                "filter": "datum.period == selected_period"
+              },
+              {
+                "filter": "(selected_continent == null) || (datum.Continent == selected_continent)"
+              },
+              {
+                "filter": {
+                  "param": "brush_select"
+                }
+              },
+              {
+                "aggregate": [
+                  {
+                    "op": "mean",
+                    "field": "start_share",
+                    "as": "start_share"
+                  },
+                  {
+                    "op": "mean",
+                    "field": "end_share",
+                    "as": "end_share"
+                  },
+                  {
+                    "op": "mean",
+                    "field": "change",
+                    "as": "change"
+                  }
+                ],
+                "groupby": [
+                  "Continent",
+                  "Source"
+                ]
+              }
+            ]
+          },
+          {
+            "mark": {
+              "type": "point",
+              "filled": false,
+              "size": 80,
+              "strokeWidth": 2
+            },
+            "encoding": {
+              "stroke": {
+                "field": "Source",
+                "legend": null,
+                "scale": {
+                  "domain": [
+                    "Coal",
+                    "Gas",
+                    "Oil",
+                    "Cement",
+                    "Flaring"
+                  ],
+                  "range": [
+                    "#1a1a1a",
+                    "#6baed6",
+                    "#c994c7",
+                    "#bdbdbd",
+                    "#fdae6b"
+                  ]
+                },
+                "type": "nominal"
+              },
+              "tooltip": [
+                {
+                  "field": "Continent",
+                  "title": "Region",
+                  "type": "nominal"
+                },
+                {
+                  "field": "Source",
+                  "title": "Source",
+                  "type": "nominal"
+                },
+                {
+                  "field": "start_share",
+                  "format": ".1f",
+                  "title": "Start Share %",
+                  "type": "quantitative"
+                },
+                {
+                  "field": "end_share",
+                  "format": ".1f",
+                  "title": "End Share %",
+                  "type": "quantitative"
+                },
+                {
+                  "field": "change",
+                  "format": "+.1f",
+                  "title": "Change",
+                  "type": "quantitative"
+                }
+              ],
+              "x": {
+                "field": "start_share",
+                "type": "quantitative"
+              },
+              "y": {
+                "field": "Source",
+                "sort": [
+                  "Coal",
+                  "Oil",
+                  "Gas",
+                  "Cement",
+                  "Flaring"
+                ],
+                "type": "nominal"
+              }
+            },
+            "transform": [
+              {
+                "filter": "datum.period == selected_period"
+              },
+              {
+                "filter": "(selected_continent == null) || (datum.Continent == selected_continent)"
+              },
+              {
+                "filter": {
+                  "param": "brush_select"
+                }
+              },
+              {
+                "aggregate": [
+                  {
+                    "op": "mean",
+                    "field": "start_share",
+                    "as": "start_share"
+                  },
+                  {
+                    "op": "mean",
+                    "field": "end_share",
+                    "as": "end_share"
+                  },
+                  {
+                    "op": "mean",
+                    "field": "change",
+                    "as": "change"
+                  }
+                ],
+                "groupby": [
+                  "Continent",
+                  "Source"
+                ]
+              }
+            ]
+          },
+          {
+            "mark": {
+              "type": "circle",
+              "size": 80
+            },
+            "encoding": {
+              "color": {
+                "field": "Source",
+                "legend": null,
+                "scale": {
+                  "domain": [
+                    "Coal",
+                    "Gas",
+                    "Oil",
+                    "Cement",
+                    "Flaring"
+                  ],
+                  "range": [
+                    "#1a1a1a",
+                    "#6baed6",
+                    "#c994c7",
+                    "#bdbdbd",
+                    "#fdae6b"
+                  ]
+                },
+                "type": "nominal"
+              },
+              "tooltip": [
+                {
+                  "field": "Continent",
+                  "title": "Region",
+                  "type": "nominal"
+                },
+                {
+                  "field": "Source",
+                  "title": "Source",
+                  "type": "nominal"
+                },
+                {
+                  "field": "start_share",
+                  "format": ".1f",
+                  "title": "Start Share %",
+                  "type": "quantitative"
+                },
+                {
+                  "field": "end_share",
+                  "format": ".1f",
+                  "title": "End Share %",
+                  "type": "quantitative"
+                },
+                {
+                  "field": "change",
+                  "format": "+.1f",
+                  "title": "Change",
+                  "type": "quantitative"
+                }
+              ],
+              "x": {
+                "field": "end_share",
+                "type": "quantitative"
+              },
+              "y": {
+                "field": "Source",
+                "sort": [
+                  "Coal",
+                  "Oil",
+                  "Gas",
+                  "Cement",
+                  "Flaring"
+                ],
+                "type": "nominal"
+              }
+            },
+            "transform": [
+              {
+                "filter": "datum.period == selected_period"
+              },
+              {
+                "filter": "(selected_continent == null) || (datum.Continent == selected_continent)"
+              },
+              {
+                "filter": {
+                  "param": "brush_select"
+                }
+              },
+              {
+                "aggregate": [
+                  {
+                    "op": "mean",
+                    "field": "start_share",
+                    "as": "start_share"
+                  },
+                  {
+                    "op": "mean",
+                    "field": "end_share",
+                    "as": "end_share"
+                  },
+                  {
+                    "op": "mean",
+                    "field": "change",
+                    "as": "change"
+                  }
+                ],
+                "groupby": [
+                  "Continent",
+                  "Source"
+                ]
+              }
+            ]
+          }
+        ],
+        "height": 100,
+        "width": 350
+      },
+      "title": {
+        "text": "Emission Composition Changes by Region",
+        "subtitle": "Brush scatter plot to filter. Open = start, Filled = end"
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "selected_period",
+      "bind": {
+        "input": "select",
+        "options": [
+          "1922-2022",
+          "1973-2022",
+          "2000-2022"
+        ],
+        "labels": [
+          "1922-2022 (Full Dataset)",
+          "1973-2022 (Oil Crisis Era)",
+          "2000-2022 (Modern Era)"
+        ],
+        "name": "Time Period: "
+      },
+      "value": "1973-2022"
+    },
+    {
+      "name": "brush_select",
+      "select": {
+        "type": "interval"
+      },
+      "views": [
+        "view_4e42848d87e8407b_0",
+        "view_39ff4c4a5256e2c6_0"
+      ]
+    },
+    {
+      "name": "country_click",
+      "select": {
+        "type": "point",
+        "fields": [
+          "Name"
+        ]
+      },
+      "views": [
+        "view_4e42848d87e8407b_0",
+        "view_525f8b2c118e50f4_0"
+      ]
+    },
+    {
+      "name": "selected_continent",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Africa",
+          "Asia",
+          "Europe",
+          "North America",
+          "Oceania",
+          "South America"
+        ],
+        "labels": [
+          "All Continents",
+          "Africa",
+          "Asia",
+          "Europe",
+          "North America",
+          "Oceania",
+          "South America"
+        ],
+        "name": "Continent: "
+      },
+      "value": null
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "title": {
+    "text": "Emission Transition Speed Dashboard",
+    "anchor": "middle",
+    "fontSize": 20,
+    "subtitle": "Which regions are transitioning their emission profiles most rapidly?"
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json"
+}
