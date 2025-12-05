@@ -1,374 +1,248 @@
 {
-  "config": {
-    "view": {
-      "continuousWidth": 300,
-      "continuousHeight": 300,
-      "fill": null,
-      "stroke": null
-    }
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "background": "white",
+  "padding": 5,
+  "title": {
+    "text": "View 2: Trade and CO\u2082 Explorer",
+    "anchor": "middle",
+    "fontSize": 35,
+    "offset": 30
   },
-  "hconcat": [
+  "data": [
     {
-      "layer": [
-        {
-          "mark": {
-            "type": "bar"
-          },
-          "encoding": {
-            "color": {
-              "field": "metric",
-              "title": "Metric",
-              "type": "nominal"
-            },
-            "opacity": {
-              "condition": {
-                "param": "param_4440efed93a5dd85",
-                "value": 1,
-                "empty": false
-              },
-              "value": 0.3
-            },
-            "tooltip": [
-              {
-                "field": "group_value",
-                "title": "Group",
-                "type": "nominal"
-              },
-              {
-                "field": "metric",
-                "title": "Metric",
-                "type": "nominal"
-              },
-              {
-                "aggregate": "mean",
-                "field": "value",
-                "format": ".2f",
-                "title": "Average CO\u2082",
-                "type": "quantitative"
-              }
-            ],
-            "x": {
-              "axis": {
-                "labelAngle": 0,
-                "titlePadding": 10,
-                "titleFontSize": 15
-              },
-              "field": "group_value",
-              "title": "Group",
-              "type": "nominal"
-            },
-            "xOffset": {
-              "field": "metric",
-              "type": "nominal"
-            },
-            "y": {
-              "aggregate": "mean",
-              "axis": {
-                "titlePadding": 10,
-                "titleFontSize": 15
-              },
-              "field": "value",
-              "scale": {
-                "zero": false
-              },
-              "title": "Average CO\u2082",
-              "type": "quantitative"
-            }
-          },
-          "name": "view_5ee0aad1928b8529_0",
-          "transform": [
-            {
-              "filter": "(datum.group_type === grouping)"
-            },
-            {
-              "filter": "(datum.year === Year)"
-            },
-            {
-              "filter": "((!ShowMissing) || (datum.value !== null))"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "opacity": 0
-          },
-          "transform": [
-            {
-              "filter": "(datum.group_type === grouping)"
-            },
-            {
-              "filter": "(datum.year === Year)"
-            },
-            {
-              "filter": "((!ShowMissing) || (datum.value !== null))"
-            }
-          ]
-        }
-      ],
-      "height": 700,
-      "title": {
-        "text": "Average Total CO\u2082 vs Average Trade CO\u2082",
-        "subtitle": "By Dynamic Grouping"
-      },
-      "width": 500
+      "name": "param_c43b9dc8de4b37bc_store"
     },
     {
-      "vconcat": [
+      "name": "param_4440efed93a5dd85_store"
+    },
+    {
+      "name": "source_0",
+      "url": "data/altair-data-a4c1532269c735857c3cab1da900baf6.json",
+      "format": {
+        "type": "json"
+      }
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
         {
-          "layer": [
-            {
-              "mark": {
-                "type": "bar"
-              },
-              "encoding": {
-                "color": {
-                  "field": "metric",
-                  "legend": {
-                    "labelColor": "rgba(0,0,0,0)",
-                    "symbolFillColor": "rgba(0,0,0,0)",
-                    "symbolSize": 0,
-                    "symbolStrokeColor": "rgba(0,0,0,0)",
-                    "titleColor": "rgba(0,0,0,0)"
-                  },
-                  "type": "nominal"
-                },
-                "opacity": {
-                  "condition": {
-                    "param": "param_c43b9dc8de4b37bc",
-                    "value": 1,
-                    "empty": true
-                  },
-                  "value": 0.1
-                },
-                "tooltip": [
-                  {
-                    "field": "country_name_short",
-                    "title": "Country",
-                    "type": "nominal"
-                  },
-                  {
-                    "field": "gdp",
-                    "format": ".2s",
-                    "title": "GDP",
-                    "type": "quantitative"
-                  },
-                  {
-                    "field": "value",
-                    "title": "Value",
-                    "type": "quantitative"
-                  },
-                  {
-                    "field": "metric",
-                    "title": "Metric",
-                    "type": "nominal"
-                  }
-                ],
-                "x": {
-                  "axis": {
-                    "titleFontSize": 15,
-                    "titlePadding": 10,
-                    "labelAngle": -70
-                  },
-                  "field": "country_name_short",
-                  "sort": {
-                    "field": "gdp",
-                    "order": "ascending"
-                  },
-                  "title": "Country",
-                  "type": "nominal"
-                },
-                "y": {
-                  "axis": {
-                    "titleFontSize": 15,
-                    "titlePadding": 10
-                  },
-                  "field": "value",
-                  "title": "CO\u2082 Emissions",
-                  "type": "quantitative"
-                }
-              },
-              "name": "view_cfbc20ec1e161717_0",
-              "title": {
-                "text": "Countries in Selected Group",
-                "subtitle": "Ordered by GDP, Ascending"
-              },
-              "transform": [
-                {
-                  "filter": {
-                    "param": "param_4440efed93a5dd85",
-                    "empty": false
-                  }
-                },
-                {
-                  "filter": "(datum.year === Year)"
-                },
-                {
-                  "filter": "((!ShowMissing) || (datum.value !== null))"
-                }
-              ]
-            },
-            {
-              "mark": {
-                "type": "rule",
-                "color": "blue",
-                "size": 1
-              },
-              "encoding": {
-                "tooltip": [
-                  {
-                    "field": "avg_value",
-                    "title": "CO\u2082 Average",
-                    "type": "quantitative"
-                  }
-                ],
-                "y": {
-                  "field": "avg_value",
-                  "type": "quantitative"
-                }
-              },
-              "transform": [
-                {
-                  "filter": {
-                    "param": "param_4440efed93a5dd85",
-                    "empty": false
-                  }
-                },
-                {
-                  "filter": "(datum.metric === 'co2')"
-                },
-                {
-                  "filter": "(datum.year === Year)"
-                },
-                {
-                  "aggregate": [
-                    {
-                      "op": "mean",
-                      "field": "value",
-                      "as": "avg_value"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "mark": {
-                "type": "rule",
-                "color": "orange",
-                "size": 1
-              },
-              "encoding": {
-                "tooltip": [
-                  {
-                    "field": "avg_value",
-                    "title": "Trade CO\u2082 Average",
-                    "type": "quantitative"
-                  }
-                ],
-                "y": {
-                  "field": "avg_value",
-                  "type": "quantitative"
-                }
-              },
-              "transform": [
-                {
-                  "filter": {
-                    "param": "param_4440efed93a5dd85",
-                    "empty": false
-                  }
-                },
-                {
-                  "filter": "(datum.metric === 'trade_co2')"
-                },
-                {
-                  "filter": "(datum.year === Year)"
-                },
-                {
-                  "aggregate": [
-                    {
-                      "op": "mean",
-                      "field": "value",
-                      "as": "avg_value"
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "height": 400,
-          "width": 700
+          "type": "filter",
+          "expr": "(datum.group_type === grouping)"
         },
         {
-          "mark": {
-            "type": "tick",
-            "size": 100
-          },
-          "encoding": {
-            "opacity": {
-              "condition": {
-                "param": "param_c43b9dc8de4b37bc",
-                "value": 1,
-                "empty": true
-              },
-              "value": 0.1
-            },
-            "tooltip": [
-              {
-                "field": "country_name_short",
-                "title": "Country",
-                "type": "nominal"
-              },
-              {
-                "field": "gdp",
-                "format": ".2s",
-                "title": "GDP",
-                "type": "quantitative"
-              }
-            ],
-            "x": {
-              "field": "gdp",
-              "type": "quantitative"
-            }
-          },
-          "height": 100,
-          "name": "view_4b805b3fcba005f3_1",
-          "title": "GDP of Selected Countries (in USD)",
-          "transform": [
-            {
-              "filter": {
-                "param": "param_4440efed93a5dd85",
-                "empty": false
-              }
-            },
-            {
-              "filter": "(datum.year === Year)"
-            },
-            {
-              "filter": "((!ShowMissing) || (datum.value !== null))"
-            }
+          "type": "filter",
+          "expr": "(datum.year === Year)"
+        },
+        {
+          "type": "filter",
+          "expr": "((!ShowMissing) || (datum.value !== null))"
+        }
+      ]
+    },
+    {
+      "name": "data_1",
+      "source": "data_0",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "group_value",
+            "metric"
           ],
-          "width": 700
+          "ops": [
+            "mean"
+          ],
+          "fields": [
+            "value"
+          ],
+          "as": [
+            "mean_value"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"mean_value\"]) && isFinite(+datum[\"mean_value\"])"
+        }
+      ]
+    },
+    {
+      "name": "data_2",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "length(data(\"param_4440efed93a5dd85_store\")) && vlSelectionTest(\"param_4440efed93a5dd85_store\", datum)"
+        }
+      ]
+    },
+    {
+      "name": "data_3",
+      "source": "data_2",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "(datum.year === Year)"
+        },
+        {
+          "type": "filter",
+          "expr": "((!ShowMissing) || (datum.value !== null))"
+        }
+      ]
+    },
+    {
+      "name": "data_4",
+      "source": "data_3",
+      "transform": [
+        {
+          "type": "stack",
+          "groupby": [
+            "country_name_short"
+          ],
+          "field": "value",
+          "sort": {
+            "field": [
+              "metric"
+            ],
+            "order": [
+              "descending"
+            ]
+          },
+          "as": [
+            "value_start",
+            "value_end"
+          ],
+          "offset": "zero"
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"value\"]) && isFinite(+datum[\"value\"])"
+        }
+      ]
+    },
+    {
+      "name": "data_5",
+      "source": "data_3",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"gdp\"]) && isFinite(+datum[\"gdp\"])"
+        }
+      ]
+    },
+    {
+      "name": "data_6",
+      "source": "data_2",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "(datum.metric === 'co2')"
+        },
+        {
+          "type": "filter",
+          "expr": "(datum.year === Year)"
+        },
+        {
+          "type": "aggregate",
+          "groupby": [],
+          "ops": [
+            "mean"
+          ],
+          "fields": [
+            "value"
+          ],
+          "as": [
+            "avg_value"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"avg_value\"]) && isFinite(+datum[\"avg_value\"])"
+        }
+      ]
+    },
+    {
+      "name": "data_7",
+      "source": "data_2",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "(datum.metric === 'trade_co2')"
+        },
+        {
+          "type": "filter",
+          "expr": "(datum.year === Year)"
+        },
+        {
+          "type": "aggregate",
+          "groupby": [],
+          "ops": [
+            "mean"
+          ],
+          "fields": [
+            "value"
+          ],
+          "as": [
+            "avg_value"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"avg_value\"]) && isFinite(+datum[\"avg_value\"])"
         }
       ]
     }
   ],
-  "data": {
-    "url": "data/altair-data-a4c1532269c735857c3cab1da900baf6.json",
-    "format": {
-      "type": "json"
-    }
-  },
-  "params": [
+  "signals": [
+    {
+      "name": "concat_0_width",
+      "value": 500
+    },
+    {
+      "name": "concat_0_height",
+      "value": 700
+    },
+    {
+      "name": "concat_1_width",
+      "value": 700
+    },
+    {
+      "name": "concat_1_concat_0_height",
+      "value": 400
+    },
+    {
+      "name": "view_4b805b3fcba005f3_1_height",
+      "value": 100
+    },
+    {
+      "name": "unit",
+      "value": {},
+      "on": [
+        {
+          "events": "pointermove",
+          "update": "isTuple(group()) ? group() : unit"
+        }
+      ]
+    },
+    {
+      "name": "param_c43b9dc8de4b37bc",
+      "update": "vlSelectionResolve(\"param_c43b9dc8de4b37bc_store\", \"union\", true, true)"
+    },
+    {
+      "name": "param_4440efed93a5dd85",
+      "update": "vlSelectionResolve(\"param_4440efed93a5dd85_store\", \"union\", true, true)"
+    },
     {
       "name": "ShowMissing",
+      "value": true,
       "bind": {
         "input": "checkbox",
         "name": "Show Only Non-Missing Data"
-      },
-      "value": true
+      }
     },
     {
       "name": "grouping",
+      "value": "continent_name",
       "bind": {
         "input": "radio",
         "options": [
@@ -384,62 +258,960 @@
           "Trading Bloc"
         ],
         "name": "Group By: "
-      },
-      "value": "continent_name"
+      }
     },
     {
       "name": "Year",
+      "value": 1990,
       "bind": {
         "input": "range",
-        "max": 2022.0,
-        "min": 1990.0,
+        "max": 2022,
+        "min": 1990,
         "step": 1
-      },
-      "value": 1990.0
-    },
+      }
+    }
+  ],
+  "layout": {
+    "padding": 20,
+    "bounds": "full",
+    "align": "each"
+  },
+  "marks": [
     {
-      "name": "param_c43b9dc8de4b37bc",
-      "select": {
-        "type": "point",
-        "clear": "mouseout",
-        "fields": [
-          "country_name"
-        ],
-        "on": "mouseover"
+      "type": "group",
+      "name": "concat_0_group",
+      "title": {
+        "text": "Average Total CO\u2082 vs Average Trade CO\u2082",
+        "subtitle": "By Dynamic Grouping",
+        "frame": "group"
       },
-      "views": [
-        "view_5ee0aad1928b8529_0",
-        "view_cfbc20ec1e161717_0",
-        "view_4b805b3fcba005f3_1"
+      "style": [
+        "cell",
+        "view"
+      ],
+      "encode": {
+        "update": {
+          "width": {
+            "signal": "concat_0_width"
+          },
+          "height": {
+            "signal": "concat_0_height"
+          }
+        }
+      },
+      "signals": [
+        {
+          "name": "param_c43b9dc8de4b37bc_tuple",
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "mouseover"
+                }
+              ],
+              "update": "datum && item().mark.marktype !== 'group' && indexof(item().mark.role, 'legend') < 0 ? {unit: \"view_5ee0aad1928b8529_0\", fields: param_c43b9dc8de4b37bc_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"country_name\"]]} : null",
+              "force": true
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "mouseout"
+                }
+              ],
+              "update": "null"
+            }
+          ]
+        },
+        {
+          "name": "param_c43b9dc8de4b37bc_tuple_fields",
+          "value": [
+            {
+              "type": "E",
+              "field": "country_name"
+            }
+          ]
+        },
+        {
+          "name": "param_c43b9dc8de4b37bc_toggle",
+          "value": false,
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "mouseover"
+                }
+              ],
+              "update": "event.shiftKey"
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "mouseout"
+                }
+              ],
+              "update": "false"
+            }
+          ]
+        },
+        {
+          "name": "param_c43b9dc8de4b37bc_modify",
+          "on": [
+            {
+              "events": {
+                "signal": "param_c43b9dc8de4b37bc_tuple"
+              },
+              "update": "modify(\"param_c43b9dc8de4b37bc_store\", param_c43b9dc8de4b37bc_toggle ? null : param_c43b9dc8de4b37bc_tuple, param_c43b9dc8de4b37bc_toggle ? null : true, param_c43b9dc8de4b37bc_toggle ? param_c43b9dc8de4b37bc_tuple : null)"
+            }
+          ]
+        },
+        {
+          "name": "param_4440efed93a5dd85_tuple",
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "click"
+                }
+              ],
+              "update": "datum && item().mark.marktype !== 'group' && indexof(item().mark.role, 'legend') < 0 ? {unit: \"view_5ee0aad1928b8529_0\", fields: param_4440efed93a5dd85_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"group_value\"], (item().isVoronoi ? datum.datum : datum)[\"metric\"]]} : null",
+              "force": true
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "dblclick"
+                }
+              ],
+              "update": "null"
+            }
+          ]
+        },
+        {
+          "name": "param_4440efed93a5dd85_tuple_fields",
+          "value": [
+            {
+              "type": "E",
+              "field": "group_value"
+            },
+            {
+              "type": "E",
+              "field": "metric"
+            }
+          ]
+        },
+        {
+          "name": "param_4440efed93a5dd85_toggle",
+          "value": false,
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "click"
+                }
+              ],
+              "update": "event.shiftKey"
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "dblclick"
+                }
+              ],
+              "update": "false"
+            }
+          ]
+        },
+        {
+          "name": "param_4440efed93a5dd85_modify",
+          "on": [
+            {
+              "events": {
+                "signal": "param_4440efed93a5dd85_tuple"
+              },
+              "update": "modify(\"param_4440efed93a5dd85_store\", param_4440efed93a5dd85_toggle ? null : param_4440efed93a5dd85_tuple, param_4440efed93a5dd85_toggle ? null : true, param_4440efed93a5dd85_toggle ? param_4440efed93a5dd85_tuple : null)"
+            }
+          ]
+        }
+      ],
+      "marks": [
+        {
+          "name": "view_5ee0aad1928b8529_0_marks",
+          "type": "rect",
+          "style": [
+            "bar"
+          ],
+          "interactive": true,
+          "from": {
+            "data": "data_1"
+          },
+          "encode": {
+            "update": {
+              "fill": {
+                "scale": "color",
+                "field": "metric"
+              },
+              "opacity": [
+                {
+                  "test": "length(data(\"param_4440efed93a5dd85_store\")) && vlSelectionTest(\"param_4440efed93a5dd85_store\", datum)",
+                  "value": 1
+                },
+                {
+                  "value": 0.3
+                }
+              ],
+              "tooltip": {
+                "signal": "{\"Group\": isValid(datum[\"group_value\"]) ? datum[\"group_value\"] : \"\"+datum[\"group_value\"], \"Metric\": isValid(datum[\"metric\"]) ? datum[\"metric\"] : \"\"+datum[\"metric\"], \"Average CO\u2082\": format(datum[\"mean_value\"], \".2f\")}"
+              },
+              "ariaRoleDescription": {
+                "value": "bar"
+              },
+              "description": {
+                "signal": "\"Group: \" + (isValid(datum[\"group_value\"]) ? datum[\"group_value\"] : \"\"+datum[\"group_value\"]) + \"; Average CO\u2082: \" + (format(datum[\"mean_value\"], \"\")) + \"; metric: \" + (isValid(datum[\"metric\"]) ? datum[\"metric\"] : \"\"+datum[\"metric\"]) + \"; Metric: \" + (isValid(datum[\"metric\"]) ? datum[\"metric\"] : \"\"+datum[\"metric\"])"
+              },
+              "x": {
+                "scale": "concat_0_x",
+                "field": "group_value",
+                "offset": {
+                  "scale": "xOffset",
+                  "field": "metric"
+                }
+              },
+              "width": {
+                "signal": "max(0.25, bandwidth('xOffset'))"
+              },
+              "y": {
+                "scale": "concat_0_y",
+                "field": "mean_value"
+              },
+              "y2": {
+                "signal": "scale('concat_0_y', inrange(0, domain('concat_0_y')) ? 0 : domain('concat_0_y')[0])"
+              }
+            }
+          }
+        },
+        {
+          "name": "concat_0_layer_1_marks",
+          "type": "rect",
+          "style": [
+            "bar"
+          ],
+          "interactive": false,
+          "from": {
+            "data": "data_0"
+          },
+          "encode": {
+            "update": {
+              "opacity": {
+                "value": 0
+              },
+              "fill": {
+                "value": "#4c78a8"
+              },
+              "ariaRoleDescription": {
+                "value": "bar"
+              },
+              "x": {
+                "field": {
+                  "group": "width"
+                }
+              },
+              "x2": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "y2": {
+                "field": {
+                  "group": "height"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "axes": [
+        {
+          "scale": "concat_0_y",
+          "orient": "left",
+          "gridScale": "concat_0_x",
+          "grid": true,
+          "tickCount": {
+            "signal": "ceil(concat_0_height/40)"
+          },
+          "domain": false,
+          "labels": false,
+          "aria": false,
+          "maxExtent": 0,
+          "minExtent": 0,
+          "ticks": false,
+          "zindex": 0
+        },
+        {
+          "scale": "concat_0_x",
+          "orient": "bottom",
+          "grid": false,
+          "title": "Group",
+          "labelAngle": 0,
+          "titleFontSize": 15,
+          "titlePadding": 10,
+          "labelBaseline": "top",
+          "zindex": 0
+        },
+        {
+          "scale": "concat_0_y",
+          "orient": "left",
+          "grid": false,
+          "title": "Average CO\u2082",
+          "titleFontSize": 15,
+          "titlePadding": 10,
+          "labelOverlap": true,
+          "tickCount": {
+            "signal": "ceil(concat_0_height/40)"
+          },
+          "zindex": 0
+        }
+      ],
+      "legends": [
+        {
+          "title": "Metric",
+          "fill": "color",
+          "symbolType": "square",
+          "encode": {
+            "symbols": {
+              "update": {
+                "opacity": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
       ]
     },
     {
-      "name": "param_4440efed93a5dd85",
-      "select": {
-        "type": "point",
-        "fields": [
-          "group_value",
-          "metric"
-        ],
-        "on": "click"
+      "type": "group",
+      "name": "concat_1_group",
+      "layout": {
+        "padding": 20,
+        "columns": 1,
+        "bounds": "full",
+        "align": "each"
       },
-      "views": [
-        "view_5ee0aad1928b8529_0"
+      "marks": [
+        {
+          "type": "group",
+          "name": "concat_1_concat_0_group",
+          "title": {
+            "text": "Countries in Selected Group",
+            "subtitle": "Ordered by GDP, Ascending",
+            "frame": "group"
+          },
+          "style": "cell",
+          "encode": {
+            "update": {
+              "width": {
+                "signal": "concat_1_width"
+              },
+              "height": {
+                "signal": "concat_1_concat_0_height"
+              }
+            }
+          },
+          "signals": [
+            {
+              "name": "param_c43b9dc8de4b37bc_tuple",
+              "on": [
+                {
+                  "events": [
+                    {
+                      "source": "scope",
+                      "type": "mouseover"
+                    }
+                  ],
+                  "update": "datum && item().mark.marktype !== 'group' && indexof(item().mark.role, 'legend') < 0 ? {unit: \"view_cfbc20ec1e161717_0\", fields: param_c43b9dc8de4b37bc_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"country_name\"]]} : null",
+                  "force": true
+                },
+                {
+                  "events": [
+                    {
+                      "source": "view",
+                      "type": "mouseout"
+                    }
+                  ],
+                  "update": "null"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_tuple_fields",
+              "value": [
+                {
+                  "type": "E",
+                  "field": "country_name"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_toggle",
+              "value": false,
+              "on": [
+                {
+                  "events": [
+                    {
+                      "source": "scope",
+                      "type": "mouseover"
+                    }
+                  ],
+                  "update": "event.shiftKey"
+                },
+                {
+                  "events": [
+                    {
+                      "source": "view",
+                      "type": "mouseout"
+                    }
+                  ],
+                  "update": "false"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_modify",
+              "on": [
+                {
+                  "events": {
+                    "signal": "param_c43b9dc8de4b37bc_tuple"
+                  },
+                  "update": "modify(\"param_c43b9dc8de4b37bc_store\", param_c43b9dc8de4b37bc_toggle ? null : param_c43b9dc8de4b37bc_tuple, param_c43b9dc8de4b37bc_toggle ? null : true, param_c43b9dc8de4b37bc_toggle ? param_c43b9dc8de4b37bc_tuple : null)"
+                }
+              ]
+            }
+          ],
+          "marks": [
+            {
+              "name": "view_cfbc20ec1e161717_0_marks",
+              "type": "rect",
+              "style": [
+                "bar"
+              ],
+              "interactive": true,
+              "from": {
+                "data": "data_4"
+              },
+              "encode": {
+                "update": {
+                  "fill": {
+                    "scale": "color",
+                    "field": "metric"
+                  },
+                  "opacity": [
+                    {
+                      "test": "!length(data(\"param_c43b9dc8de4b37bc_store\")) || vlSelectionTest(\"param_c43b9dc8de4b37bc_store\", datum)",
+                      "value": 1
+                    },
+                    {
+                      "value": 0.1
+                    }
+                  ],
+                  "tooltip": {
+                    "signal": "{\"Country\": isValid(datum[\"country_name_short\"]) ? datum[\"country_name_short\"] : \"\"+datum[\"country_name_short\"], \"GDP\": format(datum[\"gdp\"], \".2s\"), \"Value\": format(datum[\"value\"], \"\"), \"Metric\": isValid(datum[\"metric\"]) ? datum[\"metric\"] : \"\"+datum[\"metric\"]}"
+                  },
+                  "ariaRoleDescription": {
+                    "value": "bar"
+                  },
+                  "description": {
+                    "signal": "\"Country: \" + (isValid(datum[\"country_name_short\"]) ? datum[\"country_name_short\"] : \"\"+datum[\"country_name_short\"]) + \"; CO\u2082 Emissions: \" + (format(datum[\"value\"], \"\")) + \"; metric: \" + (isValid(datum[\"metric\"]) ? datum[\"metric\"] : \"\"+datum[\"metric\"]) + \"; GDP: \" + (format(datum[\"gdp\"], \".2s\")) + \"; Value: \" + (format(datum[\"value\"], \"\")) + \"; Metric: \" + (isValid(datum[\"metric\"]) ? datum[\"metric\"] : \"\"+datum[\"metric\"])"
+                  },
+                  "x": {
+                    "scale": "concat_1_concat_0_x",
+                    "field": "country_name_short"
+                  },
+                  "width": {
+                    "signal": "max(0.25, bandwidth('concat_1_concat_0_x'))"
+                  },
+                  "y": {
+                    "scale": "concat_1_concat_0_y",
+                    "field": "value_end"
+                  },
+                  "y2": {
+                    "scale": "concat_1_concat_0_y",
+                    "field": "value_start"
+                  }
+                }
+              }
+            },
+            {
+              "name": "concat_1_concat_0_layer_1_marks",
+              "type": "rule",
+              "style": [
+                "rule"
+              ],
+              "interactive": true,
+              "from": {
+                "data": "data_6"
+              },
+              "encode": {
+                "update": {
+                  "stroke": {
+                    "value": "blue"
+                  },
+                  "tooltip": {
+                    "signal": "{\"CO\u2082 Average\": format(datum[\"avg_value\"], \"\")}"
+                  },
+                  "description": {
+                    "signal": "\"avg_value: \" + (format(datum[\"avg_value\"], \"\")) + \"; CO\u2082 Average: \" + (format(datum[\"avg_value\"], \"\"))"
+                  },
+                  "x": {
+                    "field": {
+                      "group": "width"
+                    }
+                  },
+                  "x2": {
+                    "value": 0
+                  },
+                  "y": {
+                    "scale": "concat_1_concat_0_y",
+                    "field": "avg_value"
+                  },
+                  "strokeWidth": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "name": "concat_1_concat_0_layer_2_marks",
+              "type": "rule",
+              "style": [
+                "rule"
+              ],
+              "interactive": true,
+              "from": {
+                "data": "data_7"
+              },
+              "encode": {
+                "update": {
+                  "stroke": {
+                    "value": "orange"
+                  },
+                  "tooltip": {
+                    "signal": "{\"Trade CO\u2082 Average\": format(datum[\"avg_value\"], \"\")}"
+                  },
+                  "description": {
+                    "signal": "\"avg_value: \" + (format(datum[\"avg_value\"], \"\")) + \"; Trade CO\u2082 Average: \" + (format(datum[\"avg_value\"], \"\"))"
+                  },
+                  "x": {
+                    "field": {
+                      "group": "width"
+                    }
+                  },
+                  "x2": {
+                    "value": 0
+                  },
+                  "y": {
+                    "scale": "concat_1_concat_0_y",
+                    "field": "avg_value"
+                  },
+                  "strokeWidth": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ],
+          "axes": [
+            {
+              "scale": "concat_1_concat_0_y",
+              "orient": "left",
+              "gridScale": "concat_1_concat_0_x",
+              "grid": true,
+              "tickCount": {
+                "signal": "ceil(concat_1_concat_0_height/40)"
+              },
+              "domain": false,
+              "labels": false,
+              "aria": false,
+              "maxExtent": 0,
+              "minExtent": 0,
+              "ticks": false,
+              "zindex": 0
+            },
+            {
+              "scale": "concat_1_concat_0_x",
+              "orient": "bottom",
+              "grid": false,
+              "title": "Country",
+              "labelAngle": 290,
+              "titleFontSize": 15,
+              "titlePadding": 10,
+              "labelAlign": "right",
+              "labelBaseline": "middle",
+              "zindex": 0
+            },
+            {
+              "scale": "concat_1_concat_0_y",
+              "orient": "left",
+              "grid": false,
+              "title": "CO\u2082 Emissions",
+              "titleFontSize": 15,
+              "titlePadding": 10,
+              "labelOverlap": true,
+              "tickCount": {
+                "signal": "ceil(concat_1_concat_0_height/40)"
+              },
+              "zindex": 0
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "name": "view_4b805b3fcba005f3_1_group",
+          "title": {
+            "text": "GDP of Selected Countries (in USD)",
+            "frame": "group"
+          },
+          "style": "cell",
+          "encode": {
+            "update": {
+              "width": {
+                "signal": "concat_1_width"
+              },
+              "height": {
+                "signal": "view_4b805b3fcba005f3_1_height"
+              }
+            }
+          },
+          "signals": [
+            {
+              "name": "height",
+              "update": "view_4b805b3fcba005f3_1_height"
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_tuple",
+              "on": [
+                {
+                  "events": [
+                    {
+                      "source": "scope",
+                      "type": "mouseover"
+                    }
+                  ],
+                  "update": "datum && item().mark.marktype !== 'group' && indexof(item().mark.role, 'legend') < 0 ? {unit: \"view_4b805b3fcba005f3_1\", fields: param_c43b9dc8de4b37bc_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"country_name\"]]} : null",
+                  "force": true
+                },
+                {
+                  "events": [
+                    {
+                      "source": "view",
+                      "type": "mouseout"
+                    }
+                  ],
+                  "update": "null"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_tuple_fields",
+              "value": [
+                {
+                  "type": "E",
+                  "field": "country_name"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_toggle",
+              "value": false,
+              "on": [
+                {
+                  "events": [
+                    {
+                      "source": "scope",
+                      "type": "mouseover"
+                    }
+                  ],
+                  "update": "event.shiftKey"
+                },
+                {
+                  "events": [
+                    {
+                      "source": "view",
+                      "type": "mouseout"
+                    }
+                  ],
+                  "update": "false"
+                }
+              ]
+            },
+            {
+              "name": "param_c43b9dc8de4b37bc_modify",
+              "on": [
+                {
+                  "events": {
+                    "signal": "param_c43b9dc8de4b37bc_tuple"
+                  },
+                  "update": "modify(\"param_c43b9dc8de4b37bc_store\", param_c43b9dc8de4b37bc_toggle ? null : param_c43b9dc8de4b37bc_tuple, param_c43b9dc8de4b37bc_toggle ? null : true, param_c43b9dc8de4b37bc_toggle ? param_c43b9dc8de4b37bc_tuple : null)"
+                }
+              ]
+            }
+          ],
+          "marks": [
+            {
+              "name": "view_4b805b3fcba005f3_1_marks",
+              "type": "rect",
+              "style": [
+                "tick"
+              ],
+              "interactive": true,
+              "from": {
+                "data": "data_5"
+              },
+              "encode": {
+                "update": {
+                  "opacity": [
+                    {
+                      "test": "!length(data(\"param_c43b9dc8de4b37bc_store\")) || vlSelectionTest(\"param_c43b9dc8de4b37bc_store\", datum)",
+                      "value": 1
+                    },
+                    {
+                      "value": 0.1
+                    }
+                  ],
+                  "fill": {
+                    "value": "#4c78a8"
+                  },
+                  "tooltip": {
+                    "signal": "{\"Country\": isValid(datum[\"country_name_short\"]) ? datum[\"country_name_short\"] : \"\"+datum[\"country_name_short\"], \"GDP\": format(datum[\"gdp\"], \".2s\")}"
+                  },
+                  "ariaRoleDescription": {
+                    "value": "tick"
+                  },
+                  "description": {
+                    "signal": "\"gdp: \" + (format(datum[\"gdp\"], \"\")) + \"; Country: \" + (isValid(datum[\"country_name_short\"]) ? datum[\"country_name_short\"] : \"\"+datum[\"country_name_short\"]) + \"; GDP: \" + (format(datum[\"gdp\"], \".2s\"))"
+                  },
+                  "yc": {
+                    "signal": "view_4b805b3fcba005f3_1_height",
+                    "mult": 0.5
+                  },
+                  "height": {
+                    "value": 100
+                  },
+                  "xc": {
+                    "scale": "view_4b805b3fcba005f3_1_x",
+                    "field": "gdp"
+                  },
+                  "width": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ],
+          "axes": [
+            {
+              "scale": "view_4b805b3fcba005f3_1_x",
+              "orient": "bottom",
+              "grid": true,
+              "tickCount": {
+                "signal": "ceil(concat_1_width/40)"
+              },
+              "domain": false,
+              "labels": false,
+              "aria": false,
+              "maxExtent": 0,
+              "minExtent": 0,
+              "ticks": false,
+              "zindex": 0
+            },
+            {
+              "scale": "view_4b805b3fcba005f3_1_x",
+              "orient": "bottom",
+              "grid": false,
+              "title": "gdp",
+              "labelFlush": true,
+              "labelOverlap": true,
+              "tickCount": {
+                "signal": "ceil(concat_1_width/40)"
+              },
+              "zindex": 0
+            }
+          ]
+        }
+      ],
+      "legends": [
+        {
+          "labelColor": "rgba(0,0,0,0)",
+          "symbolFillColor": "rgba(0,0,0,0)",
+          "symbolSize": 0,
+          "symbolStrokeColor": "rgba(0,0,0,0)",
+          "titleColor": "rgba(0,0,0,0)",
+          "fill": "color",
+          "symbolType": "square",
+          "title": "metric",
+          "encode": {
+            "symbols": {
+              "update": {
+                "opacity": {
+                  "value": 1
+                }
+              }
+            }
+          }
+        }
       ]
     }
   ],
-  "resolve": {
-    "legend": {
-      "color": "independent",
-      "size": "independent"
+  "scales": [
+    {
+      "name": "xOffset",
+      "type": "band",
+      "domain": {
+        "data": "data_1",
+        "field": "metric",
+        "sort": true
+      },
+      "range": [
+        0,
+        {
+          "signal": "bandwidth('concat_0_x')"
+        }
+      ]
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {
+        "fields": [
+          {
+            "data": "data_1",
+            "field": "metric"
+          },
+          {
+            "data": "data_4",
+            "field": "metric"
+          }
+        ],
+        "sort": true
+      },
+      "range": "category"
+    },
+    {
+      "name": "concat_0_x",
+      "type": "band",
+      "domain": {
+        "data": "data_1",
+        "field": "group_value",
+        "sort": true
+      },
+      "range": [
+        0,
+        {
+          "signal": "concat_0_width"
+        }
+      ],
+      "paddingInner": 0.2,
+      "paddingOuter": 0.2
+    },
+    {
+      "name": "concat_0_y",
+      "type": "linear",
+      "domain": {
+        "data": "data_1",
+        "field": "mean_value"
+      },
+      "range": [
+        {
+          "signal": "concat_0_height"
+        },
+        0
+      ],
+      "zero": false,
+      "nice": true
+    },
+    {
+      "name": "concat_1_concat_0_x",
+      "type": "band",
+      "domain": {
+        "data": "data_3",
+        "field": "country_name_short",
+        "sort": {
+          "op": "sum",
+          "field": "gdp"
+        }
+      },
+      "range": [
+        0,
+        {
+          "signal": "concat_1_width"
+        }
+      ],
+      "paddingInner": 0.1,
+      "paddingOuter": 0.05
+    },
+    {
+      "name": "concat_1_concat_0_y",
+      "type": "linear",
+      "domain": {
+        "fields": [
+          {
+            "data": "data_4",
+            "field": "value_start"
+          },
+          {
+            "data": "data_4",
+            "field": "value_end"
+          },
+          {
+            "data": "data_6",
+            "field": "avg_value"
+          },
+          {
+            "data": "data_7",
+            "field": "avg_value"
+          }
+        ]
+      },
+      "range": [
+        {
+          "signal": "concat_1_concat_0_height"
+        },
+        0
+      ],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "view_4b805b3fcba005f3_1_x",
+      "type": "linear",
+      "domain": {
+        "data": "data_5",
+        "field": "gdp"
+      },
+      "range": [
+        0,
+        {
+          "signal": "concat_1_width"
+        }
+      ],
+      "nice": true,
+      "zero": true
     }
-  },
-  "spacing": 20,
-  "title": {
-    "text": "View 2: Trade and CO\u2082 Explorer",
-    "anchor": "middle",
-    "fontSize": 35,
-    "offset": 30
-  },
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json"
+  ],
+  "config": {
+    "style": {
+      "cell": {
+        "fill": null,
+        "stroke": null
+      }
+    }
+  }
 }
